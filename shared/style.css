@@ -1435,3 +1435,13 @@ figcaption{position:absolute;left:0;top:0;padding:6px 12px;font-size:12px;backgr
   .fit .vsplit .vstill figure img{width:100%;height:100%;object-fit:cover;display:block}
   .fit .vsplit .vbox{height:100%;align-self:stretch}
 }
+
+/* 视频生成：视频按原生 16:9，无上下黑边；右栏与视频等高 */
+@media (min-width:901px){
+  .fit .vsplit{grid-template-rows:var(--vh,auto);align-items:start;align-content:center;flex:1;min-height:0}
+  .fit .vsplit .vbox{height:var(--vh,auto);min-height:0;background:#000;border-radius:10px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+  .fit .vsplit .vbox video{width:100%;height:100%;object-fit:contain;display:block}
+  .fit .vsplit .vstill{height:var(--vh,auto);min-height:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(3,minmax(0,1fr));gap:var(--gut)}
+  .fit .vsplit .vstill figure{height:100%;min-height:0;aspect-ratio:auto;overflow:hidden;border-radius:10px;background:var(--bk2)}
+  .fit .vsplit .vstill figure img{width:100%;height:100%;object-fit:cover;display:block}
+}

@@ -696,7 +696,7 @@
     let t = null;
     window.addEventListener('resize', () => {
       clearTimeout(t);
-      t = setTimeout(() => R.fitRef(document.querySelector('#app') || document), 120);
+      t = setTimeout(() => { const r = document.querySelector('#app') || document; R.fitRef(r); R.fitVideo(r); }, 120);
     });
   }
 
@@ -718,6 +718,22 @@
       t = setTimeout(() => R.fitRef(document.querySelector('#app') || document), 120);
     });
   }
+
+  /* 视频生成：左侧视频按 16:9 原生比例定高，右侧 6 图同步该高度 */
+  R.fitVideo = function (root) {
+    (root || document).forEach ? null : null;
+    (root || document).querySelectorAll('.vsplit').forEach(vs => {
+      const vb = vs.querySelector('.vbox'), st = vs.querySelector('.vstill');
+      if (!vb || !st) return;
+      const W = vs.clientWidth, g = parseFloat(getComputedStyle(vs).columnGap) || 0;
+      const lw = Math.max(120, (W - g) * 1.5 / 2.5);
+      let h = lw * 9 / 16;
+      const sec = vs.closest('section');
+      const cap = (sec ? sec.clientHeight : 9999) - (vs.previousElementSibling ? vs.previousElementSibling.getBoundingClientRect().height : 0) - 24;
+      if (h > cap) h = Math.max(120, cap);
+      vs.style.setProperty('--vh', h.toFixed(2) + 'px');
+    });
+  };
 
   R.render = function (root) {
     const D = R.data;
@@ -743,6 +759,7 @@
   /* ---------- 交互 ---------- */
   R.bind = function (root) {
     setTimeout(() => R.fitRef(root), 30);
+    setTimeout(() => R.fitVideo(root), 30);
     root.querySelectorAll('.mf').forEach(flowBind);
     window.R3D && R3D.mount(root);
     root.querySelectorAll('.tab,.vseg button').forEach(b => b.addEventListener('click', () => requestAnimationFrame(R.flowRefresh)));
