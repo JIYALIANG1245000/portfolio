@@ -892,7 +892,7 @@ window.CONTENT={
         "t": "侧视图",
         "images": [
          {
-          "id": "x017",
+          "id": "u015",
           "cap": ""
          }
         ]
