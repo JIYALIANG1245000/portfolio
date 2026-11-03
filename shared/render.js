@@ -961,10 +961,12 @@
 (function () {
   if (window.__liveReload) return;
   window.__liveReload = 1;
+  if (/\/editor\//.test(location.pathname)) return;      // 编辑站不自动刷新
   if (window.R && R.edit) return;
   if (!/^(127\.0\.0\.1|localhost)$/.test(location.hostname)) return;
   let last = 0;
   setInterval(function () {
+    if (window.R && R.edit) return;
     fetch('/api/version', { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (v) {
       if (last && v.stamp && v.stamp !== last) location.reload();
       last = v.stamp || last;
