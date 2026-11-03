@@ -408,10 +408,20 @@
     return `<div class="m3">${box(m.main, 'm3-main', t(ip + '.m3d.mainLabel', 'span', '', { keep: 1 }), '')}<span class="m3-hint">拖拽旋转 · 双击复位 · 点击右侧部件切换展示</span>
       <div class="m3-side">${m.parts.map((x, i) => box(x.key, '', t(`${ip}.m3d.parts.${i}.title`, 'span', '', { keep: 1 }), pad2(i))).join('')}</div></div>`;
   }
+  /* UI 批量流程：STEP 页签 + 单张大图（与 3D 物件同一套页签样式） */
+  function uistepsHTML(it, ip) {
+    const st = it.uisteps, set = setOf(st.map(x => x.img));
+    return `<div class="uis" data-tabs><div class="tabbar" style="--n:${st.length}">${st.map((x, i) => {
+      const sp = `${ip}.uisteps.${i}`;
+      return `<div class="tab ${i ? '' : 'on'}" data-i="${i}"><b>STEP ${pad2(i)}</b><h3 data-path="${sp}.t">${esc(x.t)}</h3><span class="uis-tag ${/AI/.test(x.tag) ? 'ai' : 'hu'}" data-path="${sp}.tag">${esc(x.tag)}</span><span class="bar"></span></div>`;
+    }).join('')}</div>
+      <div class="panels">${st.map((x, i) => `<div class="panel ${i ? '' : 'on'}"><div class="uis-f" style="--r:${R.ratio(x.img).toFixed(4)}"><img data-lb="${x.img}" data-img="${ip}.uisteps.${i}.img" data-lbset="${set}" src="${R.src(x.img, 1)}" alt=""></div>${t(`${ip}.uisteps.${i}.d`, 'p', 'uis-d')}</div>`).join('')}</div></div>`;
+  }
   function panesOf(it, ip, gridAll) {
     const L = [], imgs = it.images || [];
     if (it.cflow) return [['流程', cflowHTML(it, ip)]];
     if (it.m3d) return [['3D 白模', m3dHTML(it, ip)]];
+    if (it.uisteps) return [['批量流程', uistepsHTML(it, ip)]];
     if (it.refine) return [['流程', refineHTML(it, ip)], ...(it.groups && it.groups.length ? [['风格扩展', groupsOf(it, ip)]] : [])];
     if (it.flow) L.push(['流程', flowHTML(it.flow, ip)]);
     if (it.pe) return [['图像', peHTML(it, ip)]];
@@ -512,15 +522,16 @@
   };
   T.rail = {
     rail(s, p) {
-      const nums = s.items.map(it => it.noHead ? -1 : 0);
-      let run = 0; s.items.forEach((it, i) => { if (!it.noHead) nums[i] = run++; });
-      const first = nums.findIndex(n => n === 0);
-      return `<div class="rl"><aside class="rl-l">${head(s, p)}<nav class="rail">${s.items.map((it, i) => it.noHead ? '' : `<a href="#${s.id}-${i}" class="${i === first ? 'on' : ''}"><em>${pad2(nums[i])}</em>${esc(ttl(it.title))}</a>`).join('')}</nav></aside>
-        <div class="rl-b">${s.items.map((it, i) => {
+      const shown = s.items.map((it, i) => ({ it, i })).filter(o => !o.it.hide);
+      const nums = {};
+      let run = 0; shown.forEach(o => { nums[o.i] = o.it.noHead ? -1 : run++; });
+      const first = shown.find(o => nums[o.i] === 0)?.i;
+      return `<div class="rl"><aside class="rl-l">${head(s, p)}<nav class="rail">${shown.map(({ it, i }) => it.noHead ? '' : `<a href="#${s.id}-${i}" class="${i === first ? 'on' : ''}"><em>${pad2(nums[i])}</em>${esc(ttl(it.title))}</a>`).join('')}</nav></aside>
+        <div class="rl-b">${shown.map(({ it, i }) => {
           const ip = `${p}.items.${i}`, L = panesOf(it, ip), split = (it.rows || it.cases) && L.length > 1;
           const b = paneBox(split ? L.slice(0, 1) : L, ip);
           if (it.noHead) return `<article class="rb rb-ov" id="${s.id}-${i}" data-k="-1"><div class="rb-ov-d">${t(ip + '.desc', 'p', '')}</div>${b.body}</article>`;
-          let h = `<article class="rb" id="${s.id}-${i}" data-k="${i}" data-vh><div class="rb-h"><em>${pad2(nums[i])}</em><div>${it.note != null && (R.edit || !it.rows) ? `<div class="rb-tn">${t(ip + '.title', 'h3', '', { keep: 1 })}${t(ip + '.note', 'small', '', { keep: 1 })}</div>` : t(ip + '.title', 'h3', '', { keep: 1 })}${t(ip + '.desc', 'p', '')}</div>${split ? '' : b.seg}</div>${b.body}${i ? '' : times(s, p)}</article>`;
+          let h = `<article class="rb" id="${s.id}-${i}" data-k="${i}" data-vh><div class="rb-h"><em>${pad2(nums[i])}</em><div>${it.note != null && (R.edit || !it.rows) ? `<div class="rb-tn">${t(ip + '.title', 'h3', '', { keep: 1 })}${t(ip + '.note', 'small', '', { keep: 1 })}</div>` : t(ip + '.title', 'h3', '', { keep: 1 })}${t(ip + '.desc', 'p', '')}</div>${split ? '' : b.seg}</div>${b.body}${nums[i] === 0 ? times(s, p) : ''}</article>`;
           if (split) L.slice(1).forEach((x, k) => { h += `<article class="rb rb-sub" id="${s.id}-${i}-${k + 1}" data-k="${i}" data-vh><div class="rb-h"><em>${pad2(nums[i])}</em><div><div class="rb-tn"><h3>${esc(ttl(it.title))}<span> · ${x[0]}</span></h3>${it.note && /CASE/.test(x[0]) ? `<small>${esc(ttl(it.note))}</small>` : ''}</div></div></div><div class="vws"><div class="vp on">${x[1]}</div></div></article>`; });
           return h;
         }).join('')}</div></div>`;
