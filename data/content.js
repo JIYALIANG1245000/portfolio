@@ -2016,19 +2016,28 @@ window.CONTENT={
     },
     {
      "title": "批量出 3D 建模",
-     "desc": "调用 Tripo 3D API，将物件多视图直接导入，批量生成 3D 模型",
-     "images": [
+     "desc": "多视图导入后批量生成 3D 模型，四个视角实时查看白模，后续可直接进入拓扑与贴图",
+     "_oldImages": [],
+     "m3g": [
       {
-       "id": "a105",
-       "cap": ""
+       "label": "视角 01",
+       "key": "o01",
+       "ready": false
       },
       {
-       "id": "a106",
-       "cap": ""
+       "label": "视角 02",
+       "key": "o02",
+       "ready": false
       },
       {
-       "id": "a039",
-       "cap": ""
+       "label": "视角 03",
+       "key": "o03",
+       "ready": false
+      },
+      {
+       "label": "视角 04",
+       "key": "o04",
+       "ready": false
       }
      ]
     }

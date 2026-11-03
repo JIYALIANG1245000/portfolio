@@ -1343,3 +1343,27 @@ figcaption{position:absolute;left:0;top:0;padding:6px 12px;font-size:12px;backgr
 .sec.l-uis .uis-f{background:none;border:0;border-radius:0;padding:0}
 .sec.l-uis .uis-f figure{background:none;border:0;box-shadow:none}
 .sec.l-uis .uis-f img{background:none;border:0;box-shadow:none;border-radius:6px}
+
+/* 4 宫格 3D 白模展示（3D 物件 · 批量出 3D 建模） */
+.m3g{height:100%;min-height:0;display:grid;grid-template-columns:repeat(var(--n,4),minmax(0,1fr));gap:clamp(10px,1.4vw,20px)}
+.m3g .m3-v{height:100%;min-height:0;border-radius:12px}
+.m3-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:
+  radial-gradient(120% 90% at 50% 40%,color-mix(in srgb,var(--fg) 7%,var(--bk)) 0%,var(--bk2) 60%,var(--bk) 100%)}
+.m3-empty:after{content:"";position:absolute;inset:14px;border:1px dashed color-mix(in srgb,var(--fg) 18%,transparent);border-radius:9px;pointer-events:none}
+.m3-empty .m3-ph{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:6px;font-size:12.5px;letter-spacing:.12em;color:var(--mute)}
+.m3-empty .m3-ph:before{content:"";width:34px;height:34px;border:1.5px solid var(--acid);border-radius:8px;transform:rotate(12deg);opacity:.85}
+.m3-empty .m3-ph small{font-size:10.5px;letter-spacing:.04em;color:color-mix(in srgb,var(--fg) 30%,var(--bk));white-space:nowrap}
+.m3-empty .m3-t{position:absolute;left:50%;top:14px;transform:translateX(-50%);white-space:nowrap}
+@media (max-width:900px){.m3g{grid-template-columns:repeat(2,minmax(0,1fr));height:auto}.m3g .m3-v{aspect-ratio:1}}
+
+/* 4 宫格 3D 白模展示（3D 物件 · 批量出 3D 建模） */
+.m3g{height:100%;min-height:0;display:grid;grid-template-columns:repeat(var(--n,4),minmax(0,1fr));gap:clamp(10px,1.4vw,20px)}
+.m3g .m3-v{height:100%;min-height:0;border-radius:12px}
+.m3-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:
+  radial-gradient(120% 90% at 50% 40%,color-mix(in srgb,var(--fg) 7%,var(--bk)) 0%,var(--bk2) 60%,var(--bk) 100%)}
+.m3-empty:after{content:"";position:absolute;inset:14px;border:1px dashed color-mix(in srgb,var(--fg) 18%,transparent);border-radius:9px;pointer-events:none}
+.m3-empty .m3-ph{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:6px;font-size:12.5px;letter-spacing:.12em;color:var(--mute)}
+.m3-empty .m3-ph:before{content:"";width:34px;height:34px;border:1.5px solid var(--acid);border-radius:8px;transform:rotate(12deg);opacity:.85}
+.m3-empty .m3-ph small{font-size:10.5px;letter-spacing:.04em;color:color-mix(in srgb,var(--fg) 30%,var(--bk));white-space:nowrap}
+.m3-empty .m3-t{position:absolute;left:50%;top:14px;transform:translateX(-50%);white-space:nowrap}
+@media (max-width:900px){.m3g{grid-template-columns:repeat(2,minmax(0,1fr));height:auto}.m3g .m3-v{aspect-ratio:1}}

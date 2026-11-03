@@ -408,6 +408,26 @@
     return `<div class="m3">${box(m.main, 'm3-main', t(ip + '.m3d.mainLabel', 'span', '', { keep: 1 }), '')}<span class="m3-hint">拖拽旋转 · 双击复位 · 点击右侧部件切换展示</span>
       <div class="m3-side">${m.parts.map((x, i) => box(x.key, '', t(`${ip}.m3d.parts.${i}.title`, 'span', '', { keep: 1 }), pad2(i))).join('')}</div></div>`;
   }
+  /* 4 宫格 3D 白模展示：ready 为 false 时显示待填充占位（等模型文件到位再开） */
+  function m3gridHTML(it, ip) {
+    const g = it.m3g;
+    return `<div class="m3g" style="--n:${g.length}">${g.map((x, i) => {
+      const lab = `<span class="m3-t">${t(`${ip}.m3g.${i}.label`, 'span', '', { keep: 1 })}</span>`;
+      return x.ready
+        ? `<div class="m3-v m3-cell" data-m3d="${x.key}"><canvas></canvas><span class="m3-ld">加载模型…</span>${lab}</div>`
+        : `<div class="m3-v m3-cell m3-empty">${lab}<span class="m3-ph">模型待填充<small>${x.key ? 'assets/3d/' + x.key + '.js' : ''}</small></span></div>`;
+    }).join('')}</div>`;
+  }
+  /* 4 宫格 3D 白模展示：ready 为 false 时显示待填充占位（等模型文件到位再开） */
+  function m3gridHTML(it, ip) {
+    const g = it.m3g;
+    return `<div class="m3g" style="--n:${g.length}">${g.map((x, i) => {
+      const lab = `<span class="m3-t">${t(`${ip}.m3g.${i}.label`, 'span', '', { keep: 1 })}</span>`;
+      return x.ready
+        ? `<div class="m3-v m3-cell" data-m3d="${x.key}"><canvas></canvas><span class="m3-ld">加载模型…</span>${lab}</div>`
+        : `<div class="m3-v m3-cell m3-empty">${lab}<span class="m3-ph">模型待填充<small>${x.key ? 'assets/3d/' + x.key + '.js' : ''}</small></span></div>`;
+    }).join('')}</div>`;
+  }
   /* UI 批量流程：STEP 页签 + 单张大图（与 3D 物件同一套页签样式） */
   /* 步骤页签 + 大图（3D 物件的页签样式，支持一步多图） */
   function uisHTML(st) {
@@ -429,6 +449,8 @@
     const L = [], imgs = it.images || [];
     if (it.cflow) return [['流程', cflowHTML(it, ip)]];
     if (it.m3d) return [['3D 白模', m3dHTML(it, ip)]];
+    if (it.m3g) return [['3D 模型', m3gridHTML(it, ip)]];
+    if (it.m3g) return [['3D 模型', m3gridHTML(it, ip)]];
     if (it.uisteps) return [['批量流程', uistepsHTML(it, ip)]];
     if (it.refine) return [['流程', refineHTML(it, ip)], ...(it.groups && it.groups.length ? [['风格扩展', groupsOf(it, ip)]] : [])];
     if (it.flow) L.push(['流程', flowHTML(it.flow, ip)]);

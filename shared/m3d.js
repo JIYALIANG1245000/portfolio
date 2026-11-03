@@ -131,6 +131,6 @@
       e.target.querySelectorAll('[data-m3d]').forEach(bindView);
       if (!raf) raf = requestAnimationFrame(loop);
     }), { rootMargin: '120% 0px' });
-    new Set(boxes.map(b => b.closest('.m3'))).forEach(m => io.observe(m));
+    new Set(boxes.map(b => b.closest('.m3,.m3g'))).forEach(m => io.observe(m));
   };
 })();
