@@ -94,7 +94,7 @@
   function vid(s) {
     if (!s.video) return '';
     const vr = { intro: [1899, 962], reel: [16, 9] }[s.video] || [16, 9];
-    return `<video width="${vr[0]}" height="${vr[1]}" src="${R.base}assets/video/${s.video}.mp4" poster="${R.base}assets/video/${s.video}.jpg" controls playsinline preload="metadata" ${s.video === 'reel' ? 'muted loop' : ''}></video>`;
+    return `<video width="${vr[0]}" height="${vr[1]}" src="${R.base}assets/video/${s.video}.mp4" poster="${R.base}assets/video/${s.video}.jpg" controls playsinline preload="none" ${s.video === 'reel' ? 'muted loop' : ''}></video>`;
   }
   T.video = {
     wide(s, p) {
