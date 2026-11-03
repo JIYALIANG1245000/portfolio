@@ -496,9 +496,9 @@
     if (it.views3) L.push(['AI 生成', views3HTML(it, ip)]);
     if (it.finish) L.push([esc(ttl(it.finish.t)), `<div class="fin1"><figure>${im(it.finish.images[0], ip + '.finish.images.0', { big: 1 })}</figure></div>`]);
     if (it.rows) L.push(['对比', `<div class="cmp">${poseSlider(it, ip)}<ol class="layers">${(it.points || []).map((x, i) => `<li><em>${'壹贰叁肆伍'[i] || i + 1}</em><div>${t(`${ip}.points.${i}.title`, 'h3', '', { keep: 1 })}${t(`${ip}.points.${i}.desc`, 'p', '')}</div></li>`).join('')}</ol></div>`]);
-    if (it.cases) it.cases.forEach((c, k) => L.push([`拓展 CASE ${pad2(k)}`, caseHTML(it, ip, k)]));
     if (it.theory) L.push(['原理', theoryHTML(it, ip)]);
     else if (it.principle && it.principle.length) L.push(['原理', grid(it.principle, ip + '.principle', it.principle.length, { fit: 'contain' })]);
+    if (it.cases) it.cases.forEach((c, k) => L.push([`拓展 CASE ${pad2(k)}`, caseHTML(it, ip, k)]));
     if (it.parts && it.parts.length > 3) {
       const vw = it.views || [];
       if (it.overview) { const o = it.overview, set = setOf([o.src, ...it.parts.map(pt => pt.images[0])]);
