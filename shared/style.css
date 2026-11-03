@@ -1408,3 +1408,22 @@ figcaption{position:absolute;left:0;top:0;padding:6px 12px;font-size:12px;backgr
 @media (max-width:900px){.eqh.fill{container-type:inline-size;height:auto}.eqh.fill .eqh-in{max-height:none}}
 .eqh.fill .eqf.plain{filter:none;transform:none;inset:0}
 .eqh.fill .eqf.plain{filter:none;transform:none;inset:0}
+
+/* 正交三视图：4 组 × 每组纵向 3 张 */
+.v3g{height:100%;min-height:0;display:grid;grid-template-columns:repeat(var(--n,4),minmax(0,1fr));gap:clamp(10px,1.4vw,20px)}
+.v3g-c{display:flex;flex-direction:column;min-height:0;gap:8px}
+.v3g-i{flex:1;min-height:0;display:grid;grid-template-rows:repeat(3,minmax(0,1fr));gap:clamp(6px,0.9vh,10px)}
+.v3g-i figure{margin:0;min-height:0;border-radius:9px;overflow:hidden;background:var(--bk2);border:1px solid var(--line);display:flex;align-items:center;justify-content:center}
+.v3g-i img{width:100%;height:100%;object-fit:contain;display:block;cursor:zoom-in}
+.v3g-t{flex:none;text-align:center;font-size:12px;letter-spacing:.08em;color:var(--mute)}
+
+/* 正交三视图：4 组 × 每组纵向 3 张 */
+.v3g{height:100%;min-height:0;display:grid;grid-template-columns:repeat(var(--n,4),minmax(0,1fr));gap:clamp(10px,1.4vw,20px)}
+.v3g-c{display:flex;flex-direction:column;min-height:0;gap:8px}
+.v3g-i{flex:1;min-height:0;display:grid;grid-template-rows:repeat(3,minmax(0,1fr));gap:clamp(6px,0.9vh,10px)}
+.v3g-i figure{margin:0;min-height:0;border-radius:9px;overflow:hidden;background:var(--bk2);border:1px solid var(--line);display:flex;align-items:center;justify-content:center}
+.v3g-i img{width:100%;height:100%;object-fit:contain;display:block;cursor:zoom-in}
+.v3g-t{flex:none;text-align:center;font-size:12px;letter-spacing:.08em;color:var(--mute)}
+/* 三视图格子：白底让白背素材无缝 */
+.v3g-i figure{background:#fff;border-color:transparent}
+.v3g-t{font-size:12.5px;color:color-mix(in srgb,var(--fg) 62%,var(--bk))}

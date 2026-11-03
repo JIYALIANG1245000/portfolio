@@ -159,11 +159,6 @@
    "desc": "从批量出图到角色、UI 落地的完整 2D 管线。",
    "items": [
     {
-     "title": "Agent 工程",
-     "desc": "夜间批量跑图，早上收菜",
-     "to": "c11"
-    },
-    {
      "title": "LoRA 训练",
      "desc": "6 套项目风格模型",
      "to": "c15"
@@ -186,14 +181,31 @@
     "fit": "cover",
     "aspect": "auto",
     "cols": 3
-   }
+   },
+   "_items_full": [
+    {
+     "title": "LoRA 训练",
+     "desc": "6 套项目风格模型",
+     "to": "c15"
+    },
+    {
+     "title": "角色设计 AI全流程",
+     "desc": "从概念草图到 3D 生成",
+     "to": "c12"
+    },
+    {
+     "title": "UI设计 AI全流程",
+     "desc": "每人每周 20-30 张成稿",
+     "to": "c13"
+    }
+   ]
   },
   {
    "id": "c11",
    "type": "steps",
    "layout": "tabs",
    "visible": true,
-   "nav": "",
+   "nav": "Agent 工程",
    "kicker": "2D 设计 · 01",
    "title": "Agent<br><span>工程</span>",
    "desc": "",
@@ -465,7 +477,8 @@
     "fit": "cover",
     "aspect": "auto",
     "cols": 3
-   }
+   },
+   "navOrder": -1
   },
   {
    "id": "c15",
@@ -494,7 +507,8 @@
        "cap": ""
       }
      ],
-     "eqh": true
+     "eqh": "fill",
+     "fillBg": "#ffffff"
     },
     {
      "title": "项目天赋 icon 风格",
@@ -513,7 +527,7 @@
        "cap": ""
       }
      ],
-     "eqh": true
+     "eqh": "fill"
     },
     {
      "title": "项目角色天赋风格",
@@ -532,7 +546,7 @@
        "cap": ""
       }
      ],
-     "eqh": true
+     "eqh": "fill"
     },
     {
      "title": "项目道具 icon 风格",
@@ -551,7 +565,7 @@
        "cap": ""
       }
      ],
-     "eqh": true
+     "eqh": "fill"
     },
     {
      "title": "二次元风格",
@@ -570,7 +584,8 @@
        "cap": ""
       }
      ],
-     "eqh": true
+     "eqh": "fill",
+     "fillBg": "#ffffff"
     },
     {
      "title": "三渲二风格",
@@ -600,7 +615,9 @@
     "fit": "contain",
     "aspect": "auto",
     "cols": 3
-   }
+   },
+   "ref": 1.8121,
+   "refh": "#c15-5 .eqh figure"
   },
   {
    "id": "c12",
@@ -609,7 +626,7 @@
    "visible": true,
    "nav": "",
    "kicker": "2D 设计 · 03",
-   "title": "角色设计 <span>AI全流程</span>",
+   "title": "角色设计<br><span>AI 全流程</span>",
    "desc": "从批量草图到动作立绘，再到拆件与 3D 生成：AI 负责“量”，人工负责“准”。",
    "items": [
     {
@@ -783,7 +800,8 @@
        ]
       }
      ],
-     "noHead": false
+     "noHead": false,
+     "hideTags": true
     },
     {
      "title": "概念草图",
@@ -1791,32 +1809,16 @@
      "images": [
       {
        "id": "a011",
-       "cap": ""
+       "cap": "Figma 原稿"
       },
       {
        "id": "a061",
-       "cap": ""
+       "cap": "Unity · AI 搭建"
       }
      ]
     }
    ],
-   "times": [
-    {
-     "num": "6-8",
-     "unit": "张/人天",
-     "desc": "线稿设计"
-    },
-    {
-     "num": "3-5",
-     "unit": "张/人天",
-     "desc": "上色 + 精修"
-    },
-    {
-     "num": "20-30",
-     "unit": "张/人周",
-     "desc": "成稿总产能"
-    }
-   ],
+   "times": [],
    "style": {
     "bg": "dark",
     "pad": "m",
@@ -1936,14 +1938,32 @@
       }
      ]
     }
-   ]
+   ],
+   "_times": [
+    {
+     "num": "6-8",
+     "unit": "张/人天",
+     "desc": "线稿设计"
+    },
+    {
+     "num": "3-5",
+     "unit": "张/人天",
+     "desc": "上色 + 精修"
+    },
+    {
+     "num": "20-30",
+     "unit": "张/人周",
+     "desc": "成稿总产能"
+    }
+   ],
+   "hideTags": true
   },
   {
    "id": "c20",
    "type": "steps",
    "layout": "stack",
    "visible": true,
-   "nav": "3D 物件 AI全流程",
+   "nav": "3D 物件",
    "kicker": "CHAPTER 02",
    "title": "3D 物件 <span>AI全流程</span>",
    "desc": "矩阵草图 → 3D 视图 → 正交三视图 → 批量出 3D 建模",
@@ -1994,23 +2014,40 @@
     },
     {
      "title": "正交三视图",
-     "desc": "由 AI 生成的斜 45° 俯视图反推物件多视图：正视、左右侧视、顶视、后视。<br><b>prompt：</b>常规视图转换结构化词条 + 此视角下的视图描述。",
-     "images": [
+     "desc": "由 AI 生成的斜 45° 俯视图反推物件多视图：正视、侧视、后视，四个物件各一组",
+     "_oldImages": [],
+     "v3g": [
       {
-       "id": "a076",
-       "cap": ""
+       "t": "鼓",
+       "images": [
+        "u002",
+        "u003",
+        "u004"
+       ]
       },
       {
-       "id": "a006",
-       "cap": ""
+       "t": "旗架",
+       "images": [
+        "u005",
+        "u006",
+        "u007"
+       ]
       },
       {
-       "id": "a001",
-       "cap": ""
+       "t": "独轮车",
+       "images": [
+        "u008",
+        "u009",
+        "u010"
+       ]
       },
       {
-       "id": "a104",
-       "cap": ""
+       "t": "兵器架",
+       "images": [
+        "u011",
+        "u012",
+        "u013"
+       ]
       }
      ]
     },
@@ -2086,7 +2123,7 @@
     }
    ],
    "id": "s11",
-   "nav": "视频生成 AI全流程",
+   "nav": "视频生成",
    "visible": true,
    "style": {
     "bg": "dark",

@@ -372,6 +372,22 @@
     const set = setOf(arr), rs = arr.map(x => R.ratio(x.id)), sum = rs.reduce((a, b) => a + b, 0);
     return `<div class="eqh" style="--sum:${sum.toFixed(4)};--n:${arr.length}"><div class="eqh-in">${arr.map((x, i) => `<figure style="--r:${rs[i].toFixed(4)};--i:${i}">${im(x, `${ip}.${i}`, { big: 1, set })}</figure>`).join('')}</div></div>`;
   }
+  /* 正交三视图：纵向三张为一组，横向四组 */
+  function v3gHTML(it, ip) {
+    const g = it.v3g, set = setOf(g.flatMap(x => x.images));
+    return `<div class="v3g" style="--n:${g.length}">${g.map((x, gi) => `
+      <div class="v3g-c"><div class="v3g-i">${x.images.map((id, k) =>
+        `<figure>${im({ id }, `${ip}.v3g.${gi}.images.${k}`, { set })}</figure>`).join('')}</div>
+        ${t(`${ip}.v3g.${gi}.t`, 'span', 'v3g-t', { keep: 1 })}</div>`).join('')}</div>`;
+  }
+  /* 正交三视图：纵向三张为一组，横向四组 */
+  function v3gHTML(it, ip) {
+    const g = it.v3g, set = setOf(g.flatMap(x => x.images));
+    return `<div class="v3g" style="--n:${g.length}">${g.map((x, gi) => `
+      <div class="v3g-c"><div class="v3g-i">${x.images.map((id, k) =>
+        `<figure>${im({ id }, `${ip}.v3g.${gi}.images.${k}`, { set })}</figure>`).join('')}</div>
+        ${t(`${ip}.v3g.${gi}.t`, 'span', 'v3g-t', { keep: 1 })}</div>`).join('')}</div>`;
+  }
   /* 统一高度 + 两侧/上下用图片相近色纵向填充（模糊同图铺底） */
   function eqFill(arr, ip, ref, bg) {
     const set = setOf(arr);
@@ -469,6 +485,8 @@
     if (it.m3g) return [['3D 模型', m3gridHTML(it, ip)]];
     if (it.m3g) return [['3D 模型', m3gridHTML(it, ip)]];
     if (it.uisteps) return [['批量流程', uistepsHTML(it, ip)]];
+    if (it.v3g) return [['三视图', v3gHTML(it, ip)]];
+    if (it.v3g) return [['三视图', v3gHTML(it, ip)]];
     if (it.refine) return [['流程', refineHTML(it, ip)], ...(it.groups && it.groups.length ? [['风格扩展', groupsOf(it, ip)]] : [])];
     if (it.flow) L.push(['流程', flowHTML(it.flow, ip)]);
     if (it.pe) return [['图像', peHTML(it, ip)]];
