@@ -391,13 +391,13 @@
   /* 统一高度 + 两侧/上下用图片相近色纵向填充（模糊同图铺底） */
   function eqFill(arr, ip, ref, bg) {
     const set = setOf(arr);
-    return `<div class="eqh fill" style="--n:${arr.length};--sum:${(ref || 1.8).toFixed(4)}"><div class="eqh-in">${arr.map((x, i) =>
+    return `<div class="eqh fill${ref === 'tall' ? ' tall' : ''}" style="--n:${arr.length};--sum:${typeof ref === 'number' ? ref.toFixed(4) : '1.8'}"><div class="eqh-in">${arr.map((x, i) =>
       `<figure style="--i:${i}">${bg ? `<span class="eqf plain" style="background:${bg}"></span>` : `<span class="eqf" style="background-image:url('${R.src(x.id, 0)}')"></span>`}${im(x, `${ip}.${i}`, { big: 1, set })}</figure>`).join('')}</div></div>`;
   }
   /* 统一高度 + 两侧/上下用图片相近色纵向填充（模糊同图铺底） */
   function eqFill(arr, ip, ref, bg) {
     const set = setOf(arr);
-    return `<div class="eqh fill" style="--n:${arr.length};--sum:${(ref || 1.8).toFixed(4)}"><div class="eqh-in">${arr.map((x, i) =>
+    return `<div class="eqh fill${ref === 'tall' ? ' tall' : ''}" style="--n:${arr.length};--sum:${typeof ref === 'number' ? ref.toFixed(4) : '1.8'}"><div class="eqh-in">${arr.map((x, i) =>
       `<figure style="--i:${i}">${bg ? `<span class="eqf plain" style="background:${bg}"></span>` : `<span class="eqf" style="background-image:url('${R.src(x.id, 0)}')"></span>`}${im(x, `${ip}.${i}`, { big: 1, set })}</figure>`).join('')}</div></div>`;
   }
   /* 动作迁移：原图 → 姿势参考 → 姿势迁移 */

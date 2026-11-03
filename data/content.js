@@ -1990,7 +1990,7 @@ window.CONTENT={
       }
      ],
      "eqh": "fill",
-     "ref": 4.0,
+     "ref": "tall",
      "fillBg": "#ffffff"
     },
     {
@@ -2015,7 +2015,7 @@ window.CONTENT={
       }
      ],
      "eqh": "fill",
-     "ref": 4.0,
+     "ref": "tall",
      "fillBg": "#ffffff"
     },
     {
