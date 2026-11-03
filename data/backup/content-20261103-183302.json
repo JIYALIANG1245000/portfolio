@@ -69,16 +69,16 @@
      "title": "LoRA 训练"
     },
     {
-     "title": "AI 角色设计全流程"
+     "title": "角色设计 AI全流程"
     },
     {
-     "title": "UI 设计"
+     "title": "UI设计 AI全流程"
     },
     {
-     "title": "3D 物件"
+     "title": "3D 物件 AI全流程"
     },
     {
-     "title": "视频生成"
+     "title": "视频生成 AI全流程"
     },
     {
      "title": "AI 工具"
@@ -159,22 +159,17 @@
    "desc": "从批量出图到角色、UI 落地的完整 2D 管线。",
    "items": [
     {
-     "title": "Agent 工程",
-     "desc": "夜间批量跑图，早上收菜",
-     "to": "c11"
-    },
-    {
      "title": "LoRA 训练",
      "desc": "6 套项目风格模型",
      "to": "c15"
     },
     {
-     "title": "AI 角色设计全流程",
+     "title": "角色设计 AI全流程",
      "desc": "从概念草图到 3D 生成",
      "to": "c12"
     },
     {
-     "title": "UI 设计",
+     "title": "UI设计 AI全流程",
      "desc": "每人每周 20-30 张成稿",
      "to": "c13"
     }
@@ -186,14 +181,31 @@
     "fit": "cover",
     "aspect": "auto",
     "cols": 3
-   }
+   },
+   "_items_full": [
+    {
+     "title": "LoRA 训练",
+     "desc": "6 套项目风格模型",
+     "to": "c15"
+    },
+    {
+     "title": "角色设计 AI全流程",
+     "desc": "从概念草图到 3D 生成",
+     "to": "c12"
+    },
+    {
+     "title": "UI设计 AI全流程",
+     "desc": "每人每周 20-30 张成稿",
+     "to": "c13"
+    }
+   ]
   },
   {
    "id": "c11",
    "type": "steps",
    "layout": "tabs",
    "visible": true,
-   "nav": "",
+   "nav": "Agent 工程",
    "kicker": "2D 设计 · 01",
    "title": "Agent<br><span>工程</span>",
    "desc": "",
@@ -465,7 +477,8 @@
     "fit": "cover",
     "aspect": "auto",
     "cols": 3
-   }
+   },
+   "navOrder": -1
   },
   {
    "id": "c15",
@@ -494,7 +507,7 @@
        "cap": ""
       }
      ],
-     "eqh": true
+     "eqh": "fill"
     },
     {
      "title": "项目天赋 icon 风格",
@@ -513,7 +526,7 @@
        "cap": ""
       }
      ],
-     "eqh": true
+     "eqh": "fill"
     },
     {
      "title": "项目角色天赋风格",
@@ -532,7 +545,7 @@
        "cap": ""
       }
      ],
-     "eqh": true
+     "eqh": "fill"
     },
     {
      "title": "项目道具 icon 风格",
@@ -551,7 +564,7 @@
        "cap": ""
       }
      ],
-     "eqh": true
+     "eqh": "fill"
     },
     {
      "title": "二次元风格",
@@ -570,7 +583,7 @@
        "cap": ""
       }
      ],
-     "eqh": true
+     "eqh": "fill"
     },
     {
      "title": "三渲二风格",
@@ -600,7 +613,8 @@
     "fit": "contain",
     "aspect": "auto",
     "cols": 3
-   }
+   },
+   "ref": 1.8121
   },
   {
    "id": "c12",
@@ -609,7 +623,7 @@
    "visible": true,
    "nav": "",
    "kicker": "2D 设计 · 03",
-   "title": "AI 角色设计<br><span>全流程</span>",
+   "title": "角色设计<br><span>AI 全流程</span>",
    "desc": "从批量草图到动作立绘，再到拆件与 3D 生成：AI 负责“量”，人工负责“准”。",
    "items": [
     {
@@ -783,7 +797,8 @@
        ]
       }
      ],
-     "noHead": false
+     "noHead": false,
+     "hideTags": true
     },
     {
      "title": "概念草图",
@@ -1737,7 +1752,7 @@
    "visible": true,
    "nav": "",
    "kicker": "2D 设计 · 04",
-   "title": "UI<br><span>设计</span>",
+   "title": "UI设计 <span>AI全流程</span>",
    "desc": "矩阵铺量 → 筛选 → 精修 → LoRA 上色 → UI 引擎搭建",
    "items": [
     {
@@ -1791,32 +1806,16 @@
      "images": [
       {
        "id": "a011",
-       "cap": ""
+       "cap": "Figma 原稿"
       },
       {
        "id": "a061",
-       "cap": ""
+       "cap": "Unity · AI 搭建"
       }
      ]
     }
    ],
-   "times": [
-    {
-     "num": "6-8",
-     "unit": "张/人天",
-     "desc": "线稿设计"
-    },
-    {
-     "num": "3-5",
-     "unit": "张/人天",
-     "desc": "上色 + 精修"
-    },
-    {
-     "num": "20-30",
-     "unit": "张/人周",
-     "desc": "成稿总产能"
-    }
-   ],
+   "times": [],
    "style": {
     "bg": "dark",
     "pad": "m",
@@ -1936,7 +1935,25 @@
       }
      ]
     }
-   ]
+   ],
+   "_times": [
+    {
+     "num": "6-8",
+     "unit": "张/人天",
+     "desc": "线稿设计"
+    },
+    {
+     "num": "3-5",
+     "unit": "张/人天",
+     "desc": "上色 + 精修"
+    },
+    {
+     "num": "20-30",
+     "unit": "张/人周",
+     "desc": "成稿总产能"
+    }
+   ],
+   "hideTags": true
   },
   {
    "id": "c20",
@@ -1945,7 +1962,7 @@
    "visible": true,
    "nav": "3D 物件",
    "kicker": "CHAPTER 02",
-   "title": "3D <span>物件</span>",
+   "title": "3D 物件 <span>AI全流程</span>",
    "desc": "矩阵草图 → 3D 视图 → 正交三视图 → 批量出 3D 建模",
    "items": [
     {
@@ -2056,8 +2073,8 @@
    "type": "video",
    "layout": "split",
    "kicker": "CHAPTER 03",
-   "title": "视频<br><span>生成</span>",
-   "desc": "分镜关键帧由 AI 生成并统一风格，再驱动为动态镜头。",
+   "title": "视频生成 <span>AI全流程</span>",
+   "desc": "",
    "video": "reel",
    "images": [
     {
@@ -2095,7 +2112,8 @@
     "fit": "cover",
     "aspect": "auto",
     "cols": 3
-   }
+   },
+   "_oldDesc": ""
   },
   {
    "id": "c40",

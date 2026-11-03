@@ -1390,3 +1390,19 @@ figcaption{position:absolute;left:0;top:0;padding:6px 12px;font-size:12px;backgr
 /* 流程图隐藏 AI/人工 角标后：步骤卡上边距收紧、序号靠上 */
 .cf.notag .cf-c header{justify-content:flex-start}
 .cf.notag .cf-c h5{margin-top:2px}
+
+/* 等高填充网格：统一高度，比例不足处用同图模糊色纵向补满 */
+.eqh.fill{container-type:size;height:100%;width:100%;display:flex;align-items:center;justify-content:center}
+.eqh.fill .eqh-in{--g:clamp(12px,1.6cqw,24px);--h:var(--refh,calc((100cqw - (var(--n) - 1)*var(--g))/var(--sum)));display:flex;gap:var(--g);height:auto;max-height:100%}
+.eqh.fill figure{position:relative;flex:1 1 0;width:auto;height:var(--h);margin:0;border-radius:12px;overflow:hidden;background:var(--bk2)}
+.eqh.fill .eqf{position:absolute;inset:-10%;background-size:cover;background-position:center;filter:blur(26px) saturate(1.2) brightness(.92);transform:scale(1.1);z-index:0}
+.eqh.fill figure img{position:relative;z-index:1;display:block;width:100%;height:100%;object-fit:contain}
+@media (max-width:900px){.eqh.fill{container-type:inline-size;height:auto}.eqh.fill .eqh-in{max-height:none}}
+
+/* 等高填充网格：统一高度，比例不足处用同图模糊色纵向补满 */
+.eqh.fill{container-type:size;height:100%;width:100%;display:flex;align-items:center;justify-content:center}
+.eqh.fill .eqh-in{--g:clamp(12px,1.6cqw,24px);--h:var(--refh,calc((100cqw - (var(--n) - 1)*var(--g))/var(--sum)));display:flex;gap:var(--g);height:auto;max-height:100%}
+.eqh.fill figure{position:relative;flex:1 1 0;width:auto;height:var(--h);margin:0;border-radius:12px;overflow:hidden;background:var(--bk2)}
+.eqh.fill .eqf{position:absolute;inset:-10%;background-size:cover;background-position:center;filter:blur(26px) saturate(1.2) brightness(.92);transform:scale(1.1);z-index:0}
+.eqh.fill figure img{position:relative;z-index:1;display:block;width:100%;height:100%;object-fit:contain}
+@media (max-width:900px){.eqh.fill{container-type:inline-size;height:auto}.eqh.fill .eqh-in{max-height:none}}

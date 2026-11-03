@@ -372,6 +372,18 @@
     const set = setOf(arr), rs = arr.map(x => R.ratio(x.id)), sum = rs.reduce((a, b) => a + b, 0);
     return `<div class="eqh" style="--sum:${sum.toFixed(4)};--n:${arr.length}"><div class="eqh-in">${arr.map((x, i) => `<figure style="--r:${rs[i].toFixed(4)};--i:${i}">${im(x, `${ip}.${i}`, { big: 1, set })}</figure>`).join('')}</div></div>`;
   }
+  /* 统一高度 + 两侧/上下用图片相近色纵向填充（模糊同图铺底） */
+  function eqFill(arr, ip, ref) {
+    const set = setOf(arr);
+    return `<div class="eqh fill" style="--n:${arr.length};--sum:${(ref || 1.8).toFixed(4)}"><div class="eqh-in">${arr.map((x, i) =>
+      `<figure style="--i:${i}"><span class="eqf" style="background-image:url('${R.src(x.id, 0)}')"></span>${im(x, `${ip}.${i}`, { big: 1, set })}</figure>`).join('')}</div></div>`;
+  }
+  /* 统一高度 + 两侧/上下用图片相近色纵向填充（模糊同图铺底） */
+  function eqFill(arr, ip, ref) {
+    const set = setOf(arr);
+    return `<div class="eqh fill" style="--n:${arr.length};--sum:${(ref || 1.8).toFixed(4)}"><div class="eqh-in">${arr.map((x, i) =>
+      `<figure style="--i:${i}"><span class="eqf" style="background-image:url('${R.src(x.id, 0)}')"></span>${im(x, `${ip}.${i}`, { big: 1, set })}</figure>`).join('')}</div></div>`;
+  }
   /* 动作迁移：原图 → 姿势参考 → 姿势迁移 */
   function caseHTML(it, ip, k) {
     const c = it.cases[k], L = it.caseLabels || [], q = `${ip}.cases.${k}`, set = setOf(c.images);
@@ -483,7 +495,7 @@
     } else if (it.parts) {
       const src = imgs[0];
       L.push(['拆件', `<div class="sp"><div class="sp-src">${src ? fig(src, ip + '.images.0', { cls: 'sp-src-img' }) : ''}</div><div class="sp-arrow"><i></i></div><div class="sp-parts">${splitParts(it, ip, null, 'parts')}</div></div>`]);
-    } else if (imgs.length && !it.flow) L.push([it.proc ? ttl(it.title) : it.groups ? '成果' : '图像', it.eqh ? eqRow(imgs, ip + '.images') : gridAll || it.grid ? grid(imgs, ip + '.images', imgs.length, { fit: 'contain' }) : stageOf(it, ip)]);
+    } else if (imgs.length && !it.flow) L.push([it.proc ? ttl(it.title) : it.groups ? '成果' : '图像', it.eqh === 'fill' ? eqFill(imgs, ip + '.images', it.ref) : it.eqh === 'fill' ? eqFill(imgs, ip + '.images', it.ref) : it.eqh ? eqRow(imgs, ip + '.images') : gridAll || it.grid ? grid(imgs, ip + '.images', imgs.length, { fit: 'contain' }) : stageOf(it, ip)]);
     if (it.groups && it.groups.length) L.push([it.rows ? '案例' : '风格', groupsOf(it, ip)]);
     return L;
   }
@@ -651,6 +663,44 @@
     document.title = R.data.meta.siteTitle;
   };
 
+  /* 让同章节里"填充行"的高度精确等于参考行（三渲二风格）的实测高度 */
+  R.fitRef = function (root) {
+    (root || document).querySelectorAll('section[data-refh]').forEach(sec => {
+      const sel = sec.dataset.refh;
+      const ref = sec.querySelector(sel);
+      const fig = ref && (ref.tagName === 'FIGURE' ? ref : ref.querySelector('figure'));
+      const h = fig ? fig.getBoundingClientRect().height : 0;
+      if (h > 1) sec.style.setProperty('--refh', h.toFixed(2) + 'px');
+    });
+  };
+  if (!window.__refhBound) {
+    window.__refhBound = 1;
+    let t = null;
+    window.addEventListener('resize', () => {
+      clearTimeout(t);
+      t = setTimeout(() => R.fitRef(document.querySelector('#app') || document), 120);
+    });
+  }
+
+  /* 让同章节里"填充行"的高度精确等于参考行（三渲二风格）的实测高度 */
+  R.fitRef = function (root) {
+    (root || document).querySelectorAll('section[data-refh]').forEach(sec => {
+      const sel = sec.dataset.refh;
+      const ref = sec.querySelector(sel);
+      const fig = ref && (ref.tagName === 'FIGURE' ? ref : ref.querySelector('figure'));
+      const h = fig ? fig.getBoundingClientRect().height : 0;
+      if (h > 1) sec.style.setProperty('--refh', h.toFixed(2) + 'px');
+    });
+  };
+  if (!window.__refhBound) {
+    window.__refhBound = 1;
+    let t = null;
+    window.addEventListener('resize', () => {
+      clearTimeout(t);
+      t = setTimeout(() => R.fitRef(document.querySelector('#app') || document), 120);
+    });
+  }
+
   R.render = function (root) {
     const D = R.data;
     R.applyTheme();
@@ -666,7 +716,7 @@
       const st = s.style || {};
       const inner = L[lay] ? L[lay](s, `sections.${i}`) : '';
       const fit = /^(chapter|steps|tools|video|contact)$/.test(s.type) || (s.type === 'rail' && lay !== 'rail');
-      html += `<section id="${s.id}" class="sec t-${s.type} l-${lay} ${fit ? 'fit' : ''} ${s.visible ? '' : 'hidden'}" data-si="${i}" data-bg="${st.bg || 'dark'}" data-pad="${st.pad || 'm'}">${inner}</section>`;
+      html += `<section id="${s.id}" class="sec t-${s.type} l-${lay} ${fit ? 'fit' : ''} ${s.visible ? '' : 'hidden'}" data-si="${i}" data-bg="${st.bg || 'dark'}" data-pad="${st.pad || 'm'}"${s.refh ? ` data-refh="${s.refh}"` : ''}>${inner}</section>`;
     });
     root.innerHTML = html;
     R.bind(root);
@@ -674,6 +724,7 @@
 
   /* ---------- 交互 ---------- */
   R.bind = function (root) {
+    setTimeout(() => R.fitRef(root), 30);
     root.querySelectorAll('.mf').forEach(flowBind);
     window.R3D && R3D.mount(root);
     root.querySelectorAll('.tab,.vseg button').forEach(b => b.addEventListener('click', () => requestAnimationFrame(R.flowRefresh)));

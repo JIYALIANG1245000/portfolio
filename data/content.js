@@ -507,7 +507,7 @@ window.CONTENT={
        "cap": ""
       }
      ],
-     "eqh": true
+     "eqh": "fill"
     },
     {
      "title": "项目天赋 icon 风格",
@@ -526,7 +526,7 @@ window.CONTENT={
        "cap": ""
       }
      ],
-     "eqh": true
+     "eqh": "fill"
     },
     {
      "title": "项目角色天赋风格",
@@ -545,7 +545,7 @@ window.CONTENT={
        "cap": ""
       }
      ],
-     "eqh": true
+     "eqh": "fill"
     },
     {
      "title": "项目道具 icon 风格",
@@ -564,7 +564,7 @@ window.CONTENT={
        "cap": ""
       }
      ],
-     "eqh": true
+     "eqh": "fill"
     },
     {
      "title": "二次元风格",
@@ -583,7 +583,7 @@ window.CONTENT={
        "cap": ""
       }
      ],
-     "eqh": true
+     "eqh": "fill"
     },
     {
      "title": "三渲二风格",
@@ -613,7 +613,9 @@ window.CONTENT={
     "fit": "contain",
     "aspect": "auto",
     "cols": 3
-   }
+   },
+   "ref": 1.8121,
+   "refh": "#c15-5 .eqh figure"
   },
   {
    "id": "c12",
