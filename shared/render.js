@@ -649,7 +649,8 @@
   R.render = function (root) {
     const D = R.data;
     R.applyTheme();
-    const navItems = D.sections.map((s, i) => ({ s, i })).filter(o => o.s.visible && o.s.nav);
+    const navItems = D.sections.map((s, i) => ({ s, i })).filter(o => o.s.visible && o.s.nav)
+      .sort((x, y) => (x.s.navOrder == null ? x.i : x.s.navOrder) - (y.s.navOrder == null ? y.i : y.s.navOrder));
     const nb = R.edit ? `<b data-path="meta.brand">${D.meta.brand}</b>` : `<b>${esc(D.meta.brand)}</b>`;
     const ns = R.edit ? `<span data-path="meta.brandSub">${D.meta.brandSub}</span>` : `<span>${esc(D.meta.brandSub)}</span>`;
     let html = `<nav class="nav"><a href="#top" class="brand"><svg class="mark" viewBox="0 0 22 22" aria-hidden="true">${[0,1,2].map(y=>[0,1,2].map(x=>`<rect x="${x*8}" y="${y*8}" width="6" height="6" style="--d:${(x+y)*.18}s"/>`).join("")).join("")}</svg>${nb}<i></i>${ns}</a>
