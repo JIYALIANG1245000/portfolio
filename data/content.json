@@ -2057,24 +2057,24 @@
      "_oldImages": [],
      "m3g": [
       {
-       "label": "视角 01",
+       "label": "战鼓",
        "key": "o01",
-       "ready": false
+       "ready": true
       },
       {
-       "label": "视角 02",
+       "label": "战旗",
        "key": "o02",
-       "ready": false
+       "ready": true
       },
       {
-       "label": "视角 03",
+       "label": "推车",
        "key": "o03",
-       "ready": false
+       "ready": true
       },
       {
-       "label": "视角 04",
+       "label": "武器架",
        "key": "o04",
-       "ready": false
+       "ready": true
       }
      ]
     }
