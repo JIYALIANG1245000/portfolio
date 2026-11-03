@@ -409,13 +409,21 @@
       <div class="m3-side">${m.parts.map((x, i) => box(x.key, '', t(`${ip}.m3d.parts.${i}.title`, 'span', '', { keep: 1 }), pad2(i))).join('')}</div></div>`;
   }
   /* UI 批量流程：STEP 页签 + 单张大图（与 3D 物件同一套页签样式） */
+  /* 步骤页签 + 大图（3D 物件的页签样式，支持一步多图） */
+  function uisHTML(st) {
+    const set = setOf(st.flatMap(x => x.imgs));
+    return `<div class="uis" data-tabs><div class="tabbar" style="--n:${st.length}">${st.map((x, i) =>
+      `<div class="tab ${i ? '' : 'on'}" data-i="${i}"><b>STEP ${pad2(i)}</b><h3 data-path="${x.tp}">${esc(x.t)}</h3><span class="uis-tag ${/AI/.test(x.tag) ? 'ai' : 'hu'}" data-path="${x.tagp}">${esc(x.tag)}</span><span class="bar"></span></div>`).join('')}</div>
+      <div class="panels">${st.map((x, i) => `<div class="panel ${i ? '' : 'on'}"><div class="uis-f" style="--n:${x.imgs.length}">${x.imgs.map((id, k) =>
+        `<figure><img data-lb="${id}" data-img="${x.imgp}${x.imgs.length > 1 ? '.' + k : ''}" data-lbset="${set}" src="${R.src(id, 1)}" alt=""></figure>`).join('')}</div>${t(x.dp, 'p', 'uis-d')}</div>`).join('')}</div></div>`;
+  }
   function uistepsHTML(it, ip) {
-    const st = it.uisteps, set = setOf(st.map(x => x.img));
-    return `<div class="uis" data-tabs><div class="tabbar" style="--n:${st.length}">${st.map((x, i) => {
-      const sp = `${ip}.uisteps.${i}`;
-      return `<div class="tab ${i ? '' : 'on'}" data-i="${i}"><b>STEP ${pad2(i)}</b><h3 data-path="${sp}.t">${esc(x.t)}</h3><span class="uis-tag ${/AI/.test(x.tag) ? 'ai' : 'hu'}" data-path="${sp}.tag">${esc(x.tag)}</span><span class="bar"></span></div>`;
-    }).join('')}</div>
-      <div class="panels">${st.map((x, i) => `<div class="panel ${i ? '' : 'on'}"><div class="uis-f" style="--r:${R.ratio(x.img).toFixed(4)}"><img data-lb="${x.img}" data-img="${ip}.uisteps.${i}.img" data-lbset="${set}" src="${R.src(x.img, 1)}" alt=""></div>${t(`${ip}.uisteps.${i}.d`, 'p', 'uis-d')}</div>`).join('')}</div></div>`;
+    return uisHTML(it.uisteps.map((x, i) => ({ ...x, imgs: [x.img], tp: `${ip}.uisteps.${i}.t`, tagp: `${ip}.uisteps.${i}.tag`, dp: `${ip}.uisteps.${i}.d`, imgp: `${ip}.uisteps.${i}.img` })));
+  }
+  /* 板块级：标题在上一行，下面步骤页签 + 大图 */
+  function uisSec(s, p) {
+    const st = s.items.map((x, i) => ({ t: ttl(x.title), tag: x.tag || '', d: ttl(x.desc), imgs: (x.images || []).map(y => y.id), tp: `${p}.items.${i}.title`, tagp: `${p}.items.${i}.tag`, dp: `${p}.items.${i}.desc`, imgp: `${p}.items.${i}.images` }));
+    return `${head(s, p, 'two')}${uisHTML(st)}${times(s, p)}`;
   }
   function panesOf(it, ip, gridAll) {
     const L = [], imgs = it.images || [];
@@ -475,7 +483,8 @@
       return `<div class="lsplit" data-tabs><div class="ls-l">${head(s, p)}<ol class="lst">${s.items.map((it, i) => `<li class="tab ${i ? '' : 'on'}" data-i="${i}"><em>${pad2(i)}</em>${t(`${p}.items.${i}.title`, 'h3', '', { keep: 1 })}</li>`).join('')}</ol>${times(s, p)}</div>
         <div class="panels">${s.items.map((it, i) => panel(it, `${p}.items.${i}`, !i, panesOf(it, `${p}.items.${i}`))).join('')}</div></div>`;
     },
-    stack(s, p) { return tabs(s, p, true, true); }
+    stack(s, p) { return tabs(s, p, true, true); },
+    uis(s, p) { return uisSec(s, p); }
   };
 
   /* ---------- 对比 ---------- */
