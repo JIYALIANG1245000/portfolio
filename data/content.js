@@ -507,7 +507,8 @@ window.CONTENT={
        "cap": ""
       }
      ],
-     "eqh": "fill"
+     "eqh": "fill",
+     "fillBg": "#ffffff"
     },
     {
      "title": "项目天赋 icon 风格",
@@ -583,7 +584,8 @@ window.CONTENT={
        "cap": ""
       }
      ],
-     "eqh": "fill"
+     "eqh": "fill",
+     "fillBg": "#ffffff"
     },
     {
      "title": "三渲二风格",

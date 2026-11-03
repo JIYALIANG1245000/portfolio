@@ -373,16 +373,16 @@
     return `<div class="eqh" style="--sum:${sum.toFixed(4)};--n:${arr.length}"><div class="eqh-in">${arr.map((x, i) => `<figure style="--r:${rs[i].toFixed(4)};--i:${i}">${im(x, `${ip}.${i}`, { big: 1, set })}</figure>`).join('')}</div></div>`;
   }
   /* 统一高度 + 两侧/上下用图片相近色纵向填充（模糊同图铺底） */
-  function eqFill(arr, ip, ref) {
+  function eqFill(arr, ip, ref, bg) {
     const set = setOf(arr);
     return `<div class="eqh fill" style="--n:${arr.length};--sum:${(ref || 1.8).toFixed(4)}"><div class="eqh-in">${arr.map((x, i) =>
-      `<figure style="--i:${i}"><span class="eqf" style="background-image:url('${R.src(x.id, 0)}')"></span>${im(x, `${ip}.${i}`, { big: 1, set })}</figure>`).join('')}</div></div>`;
+      `<figure style="--i:${i}">${bg ? `<span class="eqf plain" style="background:${bg}"></span>` : `<span class="eqf" style="background-image:url('${R.src(x.id, 0)}')"></span>`}${im(x, `${ip}.${i}`, { big: 1, set })}</figure>`).join('')}</div></div>`;
   }
   /* 统一高度 + 两侧/上下用图片相近色纵向填充（模糊同图铺底） */
-  function eqFill(arr, ip, ref) {
+  function eqFill(arr, ip, ref, bg) {
     const set = setOf(arr);
     return `<div class="eqh fill" style="--n:${arr.length};--sum:${(ref || 1.8).toFixed(4)}"><div class="eqh-in">${arr.map((x, i) =>
-      `<figure style="--i:${i}"><span class="eqf" style="background-image:url('${R.src(x.id, 0)}')"></span>${im(x, `${ip}.${i}`, { big: 1, set })}</figure>`).join('')}</div></div>`;
+      `<figure style="--i:${i}">${bg ? `<span class="eqf plain" style="background:${bg}"></span>` : `<span class="eqf" style="background-image:url('${R.src(x.id, 0)}')"></span>`}${im(x, `${ip}.${i}`, { big: 1, set })}</figure>`).join('')}</div></div>`;
   }
   /* 动作迁移：原图 → 姿势参考 → 姿势迁移 */
   function caseHTML(it, ip, k) {
@@ -495,7 +495,7 @@
     } else if (it.parts) {
       const src = imgs[0];
       L.push(['拆件', `<div class="sp"><div class="sp-src">${src ? fig(src, ip + '.images.0', { cls: 'sp-src-img' }) : ''}</div><div class="sp-arrow"><i></i></div><div class="sp-parts">${splitParts(it, ip, null, 'parts')}</div></div>`]);
-    } else if (imgs.length && !it.flow) L.push([it.proc ? ttl(it.title) : it.groups ? '成果' : '图像', it.eqh === 'fill' ? eqFill(imgs, ip + '.images', it.ref) : it.eqh === 'fill' ? eqFill(imgs, ip + '.images', it.ref) : it.eqh ? eqRow(imgs, ip + '.images') : gridAll || it.grid ? grid(imgs, ip + '.images', imgs.length, { fit: 'contain' }) : stageOf(it, ip)]);
+    } else if (imgs.length && !it.flow) L.push([it.proc ? ttl(it.title) : it.groups ? '成果' : '图像', it.eqh === 'fill' ? eqFill(imgs, ip + '.images', it.ref, it.fillBg) : it.eqh === 'fill' ? eqFill(imgs, ip + '.images', it.ref, it.fillBg) : it.eqh ? eqRow(imgs, ip + '.images') : gridAll || it.grid ? grid(imgs, ip + '.images', imgs.length, { fit: 'contain' }) : stageOf(it, ip)]);
     if (it.groups && it.groups.length) L.push([it.rows ? '案例' : '风格', groupsOf(it, ip)]);
     return L;
   }
