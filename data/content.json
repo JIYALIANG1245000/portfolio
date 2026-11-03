@@ -2057,7 +2057,7 @@
    "layout": "split",
    "kicker": "CHAPTER 03",
    "title": "视频<br><span>生成</span>",
-   "desc": "分镜关键帧由 AI 生成并统一风格，再驱动为动态镜头。",
+   "desc": "",
    "video": "reel",
    "images": [
     {
@@ -2095,7 +2095,8 @@
     "fit": "cover",
     "aspect": "auto",
     "cols": 3
-   }
+   },
+   "_oldDesc": ""
   },
   {
    "id": "c40",

@@ -1367,3 +1367,11 @@ figcaption{position:absolute;left:0;top:0;padding:6px 12px;font-size:12px;backgr
 .m3-empty .m3-ph small{font-size:10.5px;letter-spacing:.04em;color:color-mix(in srgb,var(--fg) 30%,var(--bk));white-space:nowrap}
 .m3-empty .m3-t{position:absolute;left:50%;top:14px;transform:translateX(-50%);white-space:nowrap}
 @media (max-width:900px){.m3g{grid-template-columns:repeat(2,minmax(0,1fr));height:auto}.m3g .m3-v{aspect-ratio:1}}
+/* 视频生成：左右两栏同高，视频框保持原 1.5:1 比例，画面在框内 contain（上下留黑） */
+@media (min-width:901px){
+  .fit .vsplit{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);grid-template-rows:minmax(0,1fr);align-items:stretch}
+  .fit .vsplit .vbox{height:100%;background:#000;border-radius:10px;overflow:hidden;display:flex;align-items:center}
+  .fit .vsplit .vbox video{width:100%;height:100%;object-fit:contain;display:block}
+  .fit .vsplit .vstill{height:100%}
+  .fit .vsplit .vstill figure{border-radius:10px;overflow:hidden}
+}
