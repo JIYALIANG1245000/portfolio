@@ -1459,3 +1459,6 @@ p.bullets{display:flex;flex-direction:column;gap:.15em}
 p.bullets .bl{position:relative;padding-left:15px}
 p.bullets .bl:before{content:"";position:absolute;left:0;top:.72em;width:5px;height:5px;border-radius:50%;background:var(--acid)}
 .sh.two p.bullets{max-width:460px}
+
+/* 编辑站：空的说明位显示成可点击的隐形文本框，发布站不出现 */
+p.is-empty{min-height:1.5em}   /* 空说明位：只占位，编辑站里由 [data-path]:empty 提示，发布站不显示 */

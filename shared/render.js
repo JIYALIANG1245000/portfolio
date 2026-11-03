@@ -38,13 +38,15 @@
   /* 描述：bullet 开启时每一行前面加小绿点 */
   function dsc(path, cls, bullet) {
     const v = R.get(R.data, path);
-    if (!R.edit && (v == null || v === '')) return '';
+    const empty = v == null || v === '';
+    if (!R.edit && empty) return '';
+    const base = (cls || '') + (empty && R.edit ? ' is-empty' : '');
     const multi = /<br\s*\/?>/i.test(String(v == null ? '' : v));
     const on = bullet === true || (bullet == null && multi);      // 未显式设置时：多行自动带点
-    if (!on) return `<p class="${cls || ''}" data-path="${path}">${v == null ? '' : v}</p>`;
+    if (!on) return `<p class="${base}" data-path="${path}">${v == null ? '' : v}</p>`;
     const body = String(v == null ? '' : v).split(/<br\s*\/?>/i)
       .map(x => `<span class="bl">${x}</span>`).join('');
-    return `<p class="${(cls || '') + ' bullets'}" data-path="${path}">${body}</p>`;
+    return `<p class="${base + ' bullets'}" data-path="${path}">${body}</p>`;
   }
   /* 图片 */
   function im(ref, ip, o) {
@@ -76,13 +78,13 @@
     strip(s, p) {
       return `<div class="strip" data-group>${s.images.map((x, i) => `<div>${im(x, `${p}.images.${i}`, { big: 1 })}</div>`).join('')}</div>
       <div class="hero-in">${t(p + '.kicker', 'small', 'k')}${t(p + '.title', 'h1', 'h')}
-      <div class="row">${t(p + '.desc', 'p', 'd')}<span class="scroll">SCROLL ↓</span></div></div>`;
+      <div class="row">${dsc(p + '.desc', 'd', s.bullet)}<span class="scroll">SCROLL ↓</span></div></div>`;
     },
     single(s, p) {
       const x = s.images[0];
       return `<div class="single" data-group>${x ? im(x, `${p}.images.0`, { big: 1 }) : ''}</div>
       <div class="hero-in">${t(p + '.kicker', 'small', 'k')}${t(p + '.title', 'h1', 'h')}
-      <div class="row">${t(p + '.desc', 'p', 'd')}<span class="scroll">SCROLL ↓</span></div></div>`;
+      <div class="row">${dsc(p + '.desc', 'd', s.bullet)}<span class="scroll">SCROLL ↓</span></div></div>`;
     }
   };
 
@@ -536,7 +538,7 @@
     };
   }
   function panel(it, ip, on, L) {
-    const b = paneBox(L, ip), d = it.pe ? '' : t(ip + '.desc', 'p', 'pd');
+    const b = paneBox(L, ip), d = it.pe ? '' : dsc(ip + '.desc', 'pd', it.bullet);
     return `<div class="panel ${on ? 'on' : ''}" data-vh>${d || b.seg ? `<div class="ph">${d || '<span></span>'}${b.seg}</div>` : ''}${b.body}</div>`;
   }
   function tabs(s, p, withTimes, gridAll) {
@@ -593,7 +595,7 @@
   }
   T.chapter = {
     index(s, p) {
-      return `<div class="chp"><div class="chp-n">${t(p + '.num', 'span', '', { keep: 1 })}</div><div class="chp-t">${t(p + '.kicker', 'small', 'k')}${t(p + '.title', 'h2', 'h')}${t(p + '.desc', 'p', 'd')}</div>
+      return `<div class="chp"><div class="chp-n">${t(p + '.num', 'span', '', { keep: 1 })}</div><div class="chp-t">${t(p + '.kicker', 'small', 'k')}${t(p + '.title', 'h2', 'h')}${dsc(p + '.desc', 'd', s.bullet)}</div>
         <ol class="chp-i">${s.items.map((x, i) => `<li><a href="#${x.to}"><em>${pad2(i)}</em><div>${t(`${p}.items.${i}.title`, 'h3', '', { keep: 1 })}${t(`${p}.items.${i}.desc`, 'p', '')}</div><i>→</i></a></li>`).join('')}</ol></div>`;
     }
   };
@@ -607,7 +609,7 @@
         <div class="rl-b">${shown.map(({ it, i }) => {
           const ip = `${p}.items.${i}`, L = panesOf(it, ip), split = (it.rows || it.cases) && L.length > 1;
           const b = paneBox(split ? L.slice(0, 1) : L, ip);
-          if (it.noHead) return `<article class="rb rb-ov" id="${s.id}-${i}" data-k="-1"><div class="rb-ov-d">${t(ip + '.desc', 'p', '')}</div>${b.body}</article>`;
+          if (it.noHead) return `<article class="rb rb-ov" id="${s.id}-${i}" data-k="-1"><div class="rb-ov-d">${dsc(ip + '.desc', '', it.bullet)}</div>${b.body}</article>`;
           let h = `<article class="rb" id="${s.id}-${i}" data-k="${i}" data-vh><div class="rb-h"><em>${pad2(nums[i])}</em><div>${it.note != null && (R.edit || !it.rows) ? `<div class="rb-tn">${t(ip + '.title', 'h3', '', { keep: 1 })}${t(ip + '.note', 'small', '', { keep: 1 })}</div>` : t(ip + '.title', 'h3', '', { keep: 1 })}${dsc(ip + '.desc', '', it.bullet)}</div>${split ? '' : b.seg}</div>${b.body}${nums[i] === 0 ? times(s, p) : ''}</article>`;
           if (split) L.slice(1).forEach((x, k) => { h += `<article class="rb rb-sub" id="${s.id}-${i}-${k + 1}" data-k="${i}" data-vh><div class="rb-h"><em>${pad2(nums[i])}</em><div><div class="rb-tn"><h3>${esc(ttl(it.title))}<span> · ${x[0]}</span></h3>${it.note && /CASE/.test(x[0]) ? `<small>${esc(ttl(it.note))}</small>` : ''}</div></div></div><div class="vws"><div class="vp on">${x[1]}</div></div></article>`; });
           return h;
@@ -676,7 +678,7 @@
 
   T.contact = {
     big(s, p) {
-      return `${t(p + '.kicker', 'small', 'k')}${t(p + '.title', 'h2', 'end')}<div class="ct-row">${t(p + '.desc', 'p', 'd')}
+      return `${t(p + '.kicker', 'small', 'k')}${t(p + '.title', 'h2', 'end')}<div class="ct-row">${dsc(p + '.desc', 'd', s.bullet)}
         <dl>${s.items.map((x, i) => `<div>${t(`${p}.items.${i}.title`, 'dt', '', { keep: 1 })}${t(`${p}.items.${i}.desc`, 'dd', '', { keep: 1 })}</div>`).join('')}</dl></div>
         ${t(p + '.tags', 'p', 'tags')}<div class="copy">© 2026 ${esc(R.data.meta.brand)} · ${esc(R.data.meta.brandSub)}</div>`;
     }
