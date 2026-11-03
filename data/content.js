@@ -1988,7 +1988,10 @@ window.CONTENT={
        "id": "a019",
        "cap": ""
       }
-     ]
+     ],
+     "eqh": "fill",
+     "ref": 4.0,
+     "fillBg": "#ffffff"
     },
     {
      "title": "草图转 3D 视图",
@@ -2010,7 +2013,10 @@ window.CONTENT={
        "id": "a012",
        "cap": ""
       }
-     ]
+     ],
+     "eqh": "fill",
+     "ref": 4.0,
+     "fillBg": "#ffffff"
     },
     {
      "title": "正交三视图",
