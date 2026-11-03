@@ -2158,15 +2158,11 @@ window.CONTENT={
      "pairs": [],
      "images": [
       {
-       "id": "u014",
+       "id": "a083",
        "cap": ""
       },
       {
        "id": "a046",
-       "cap": ""
-      },
-      {
-       "id": "a083",
        "cap": ""
       },
       {
