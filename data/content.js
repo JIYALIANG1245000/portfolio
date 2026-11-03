@@ -1804,11 +1804,11 @@ window.CONTENT={
      "images": [
       {
        "id": "a011",
-       "cap": ""
+       "cap": "Figma 原稿"
       },
       {
        "id": "a061",
-       "cap": ""
+       "cap": "Unity · AI 搭建"
       }
      ]
     }

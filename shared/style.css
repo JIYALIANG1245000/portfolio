@@ -1379,3 +1379,8 @@ figcaption{position:absolute;left:0;top:0;padding:6px 12px;font-size:12px;backgr
 .sec.l-uis .uis .panel{justify-content:center}
 .sec.l-uis .uis-f{flex:0 1 auto;height:auto;max-height:100%;min-height:0}
 .sec.l-uis .uis-f figure{height:auto;max-height:100%}
+.sec.l-uis .uis-f figure{position:relative}
+
+/* 页签大图备注（Figma 原稿 / Unity·AI 搭建） */
+.sec.l-uis .uis-f figcaption{position:absolute;left:10px;bottom:10px;top:auto;padding:4px 11px;border-radius:8px;
+  font-size:12px;font-weight:700;letter-spacing:.04em;line-height:1.5;background:var(--acid);color:#060806;white-space:nowrap;z-index:2}
