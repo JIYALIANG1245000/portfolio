@@ -2146,71 +2146,6 @@ window.CONTENT={
    "desc": "",
    "items": [
     {
-     "title": "AI 漫画分镜",
-     "desc": "分镜生成并直接进入游戏内使用",
-     "mode": "pair",
-     "pairs": [
-      {
-       "images": [
-        {
-         "id": "a058",
-         "cap": ""
-        },
-        {
-         "id": "a002",
-         "cap": ""
-        }
-       ],
-       "labels": [
-        "原图",
-        "AI 重绘"
-       ]
-      },
-      {
-       "images": [
-        {
-         "id": "a064",
-         "cap": ""
-        },
-        {
-         "id": "a004",
-         "cap": ""
-        }
-       ],
-       "labels": [
-        "原图",
-        "AI 重绘"
-       ]
-      },
-      {
-       "images": [
-        {
-         "id": "a084",
-         "cap": ""
-        },
-        {
-         "id": "a005",
-         "cap": ""
-        }
-       ],
-       "labels": [
-        "原图",
-        "AI 重绘"
-       ]
-      }
-     ],
-     "images": [
-      {
-       "id": "a003",
-       "cap": ""
-      },
-      {
-       "id": "a098",
-       "cap": "游戏内效果"
-      }
-     ]
-    },
-    {
      "title": "FOV 分析",
      "desc": "AI 预估 FOV、摄像机高度与旋转角，与实际值逐项对照",
      "mode": "data",
@@ -2332,7 +2267,74 @@ window.CONTENT={
     "fit": "cover",
     "aspect": "auto",
     "cols": 3
-   }
+   },
+   "_deleted": [
+    {
+     "title": "AI 漫画分镜",
+     "desc": "分镜生成并直接进入游戏内使用",
+     "mode": "pair",
+     "pairs": [
+      {
+       "images": [
+        {
+         "id": "a058",
+         "cap": ""
+        },
+        {
+         "id": "a002",
+         "cap": ""
+        }
+       ],
+       "labels": [
+        "原图",
+        "AI 重绘"
+       ]
+      },
+      {
+       "images": [
+        {
+         "id": "a064",
+         "cap": ""
+        },
+        {
+         "id": "a004",
+         "cap": ""
+        }
+       ],
+       "labels": [
+        "原图",
+        "AI 重绘"
+       ]
+      },
+      {
+       "images": [
+        {
+         "id": "a084",
+         "cap": ""
+        },
+        {
+         "id": "a005",
+         "cap": ""
+        }
+       ],
+       "labels": [
+        "原图",
+        "AI 重绘"
+       ]
+      }
+     ],
+     "images": [
+      {
+       "id": "a003",
+       "cap": ""
+      },
+      {
+       "id": "a098",
+       "cap": "游戏内效果"
+      }
+     ]
+    }
+   ]
   },
   {
    "type": "contact",
