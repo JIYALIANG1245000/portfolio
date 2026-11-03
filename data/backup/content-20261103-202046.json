@@ -492,7 +492,7 @@
    "items": [
     {
      "title": "项目立绘风格",
-     "desc": "厚涂质感的国风角色立绘，统一服饰纹样、光影与线条力度",
+     "desc": "《火凤燎原》项目角色立绘风格LoRA<br>可将线稿或草图在保持人物特征一致性的前提下重渲染风格<br>薄涂质感、漫画笔触、国风立绘，统一服饰纹样、光影与线条力度",
      "images": [
       {
        "id": "l000",
@@ -507,7 +507,8 @@
        "cap": ""
       }
      ],
-     "eqh": "fill"
+     "eqh": "fill",
+     "fillBg": "#ffffff"
     },
     {
      "title": "项目天赋 icon 风格",
@@ -583,7 +584,8 @@
        "cap": ""
       }
      ],
-     "eqh": "fill"
+     "eqh": "fill",
+     "fillBg": "#ffffff"
     },
     {
      "title": "三渲二风格",
@@ -614,7 +616,8 @@
     "aspect": "auto",
     "cols": 3
    },
-   "ref": 1.8121
+   "ref": 1.8121,
+   "refh": "#c15-5 .eqh figure"
   },
   {
    "id": "c12",
@@ -1985,7 +1988,10 @@
        "id": "a019",
        "cap": ""
       }
-     ]
+     ],
+     "eqh": "fill",
+     "ref": "tall",
+     "fillBg": "#ffffff"
     },
     {
      "title": "草图转 3D 视图",
@@ -2007,27 +2013,47 @@
        "id": "a012",
        "cap": ""
       }
-     ]
+     ],
+     "eqh": "fill",
+     "ref": "tall",
+     "fillBg": "#ffffff"
     },
     {
      "title": "正交三视图",
      "desc": "由 AI 生成的斜 45° 俯视图反推物件多视图：正视、左右侧视、顶视、后视。<br><b>prompt：</b>常规视图转换结构化词条 + 此视角下的视图描述。",
-     "images": [
+     "_oldImages": [],
+     "v3g": [
       {
-       "id": "a076",
-       "cap": ""
+       "t": "鼓",
+       "images": [
+        "u002",
+        "u003",
+        "u004"
+       ]
       },
       {
-       "id": "a006",
-       "cap": ""
+       "t": "旗架",
+       "images": [
+        "u005",
+        "u006",
+        "u007"
+       ]
       },
       {
-       "id": "a001",
-       "cap": ""
+       "t": "独轮车",
+       "images": [
+        "u008",
+        "u009",
+        "u010"
+       ]
       },
       {
-       "id": "a104",
-       "cap": ""
+       "t": "兵器架",
+       "images": [
+        "u011",
+        "u012",
+        "u013"
+       ]
       }
      ]
     },
@@ -2037,24 +2063,24 @@
      "_oldImages": [],
      "m3g": [
       {
-       "label": "视角 01",
+       "label": "战鼓",
        "key": "o01",
-       "ready": false
+       "ready": true
       },
       {
-       "label": "视角 02",
+       "label": "战旗",
        "key": "o02",
-       "ready": false
+       "ready": true
       },
       {
-       "label": "视角 03",
+       "label": "推车",
        "key": "o03",
-       "ready": false
+       "ready": true
       },
       {
-       "label": "视角 04",
+       "label": "武器架",
        "key": "o04",
-       "ready": false
+       "ready": true
       }
      ]
     }
@@ -2126,82 +2152,17 @@
    "desc": "",
    "items": [
     {
-     "title": "AI 漫画分镜",
-     "desc": "分镜生成并直接进入游戏内使用",
-     "mode": "pair",
-     "pairs": [
-      {
-       "images": [
-        {
-         "id": "a058",
-         "cap": ""
-        },
-        {
-         "id": "a002",
-         "cap": ""
-        }
-       ],
-       "labels": [
-        "原图",
-        "AI 重绘"
-       ]
-      },
-      {
-       "images": [
-        {
-         "id": "a064",
-         "cap": ""
-        },
-        {
-         "id": "a004",
-         "cap": ""
-        }
-       ],
-       "labels": [
-        "原图",
-        "AI 重绘"
-       ]
-      },
-      {
-       "images": [
-        {
-         "id": "a084",
-         "cap": ""
-        },
-        {
-         "id": "a005",
-         "cap": ""
-        }
-       ],
-       "labels": [
-        "原图",
-        "AI 重绘"
-       ]
-      }
-     ],
-     "images": [
-      {
-       "id": "a003",
-       "cap": ""
-      },
-      {
-       "id": "a098",
-       "cap": "游戏内效果"
-      }
-     ]
-    },
-    {
      "title": "FOV 分析",
      "desc": "AI 预估 FOV、摄像机高度与旋转角，与实际值逐项对照",
      "mode": "data",
      "pairs": [],
      "images": [
       {
-       "id": "a046",
+       "id": "a083",
        "cap": ""
       },
       {
-       "id": "a083",
+       "id": "a046",
        "cap": ""
       },
       {
@@ -2312,7 +2273,74 @@
     "fit": "cover",
     "aspect": "auto",
     "cols": 3
-   }
+   },
+   "_deleted": [
+    {
+     "title": "AI 漫画分镜",
+     "desc": "分镜生成并直接进入游戏内使用",
+     "mode": "pair",
+     "pairs": [
+      {
+       "images": [
+        {
+         "id": "a058",
+         "cap": ""
+        },
+        {
+         "id": "a002",
+         "cap": ""
+        }
+       ],
+       "labels": [
+        "原图",
+        "AI 重绘"
+       ]
+      },
+      {
+       "images": [
+        {
+         "id": "a064",
+         "cap": ""
+        },
+        {
+         "id": "a004",
+         "cap": ""
+        }
+       ],
+       "labels": [
+        "原图",
+        "AI 重绘"
+       ]
+      },
+      {
+       "images": [
+        {
+         "id": "a084",
+         "cap": ""
+        },
+        {
+         "id": "a005",
+         "cap": ""
+        }
+       ],
+       "labels": [
+        "原图",
+        "AI 重绘"
+       ]
+      }
+     ],
+     "images": [
+      {
+       "id": "a003",
+       "cap": ""
+      },
+      {
+       "id": "a098",
+       "cap": "游戏内效果"
+      }
+     ]
+    }
+   ]
   },
   {
    "type": "contact",
@@ -2342,5 +2370,6 @@
     "cols": 3
    }
   }
- ]
+ ],
+ "savedAt": "2026-11-03T12:16:37.704Z"
 }

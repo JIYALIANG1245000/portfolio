@@ -956,3 +956,18 @@
   let rz; addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => { R.layoutH(); R.flowRefresh(); }, 120); });
   addEventListener('load', () => R.layoutH());
 })();
+
+/* 本地预览（127.0.0.1）自动跟随编辑站保存而刷新 */
+(function () {
+  if (window.__liveReload) return;
+  window.__liveReload = 1;
+  if (window.R && R.edit) return;
+  if (!/^(127\.0\.0\.1|localhost)$/.test(location.hostname)) return;
+  let last = 0;
+  setInterval(function () {
+    fetch('/api/version', { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (v) {
+      if (last && v.stamp && v.stamp !== last) location.reload();
+      last = v.stamp || last;
+    }).catch(function () {});
+  }, 3000);
+})();
