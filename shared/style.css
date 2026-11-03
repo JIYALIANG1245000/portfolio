@@ -1375,3 +1375,7 @@ figcaption{position:absolute;left:0;top:0;padding:6px 12px;font-size:12px;backgr
   .fit .vsplit .vstill{height:100%}
   .fit .vsplit .vstill figure{border-radius:10px;overflow:hidden}
 }
+/* UI 设计去掉耗时条后：图片与说明在剩余空间内垂直居中 */
+.sec.l-uis .uis .panel{justify-content:center}
+.sec.l-uis .uis-f{flex:0 1 auto;height:auto;max-height:100%;min-height:0}
+.sec.l-uis .uis-f figure{height:auto;max-height:100%}
