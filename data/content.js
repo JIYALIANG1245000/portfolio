@@ -1950,7 +1950,8 @@ window.CONTENT={
      "unit": "张/人周",
      "desc": "成稿总产能"
     }
-   ]
+   ],
+   "hideTags": true
   },
   {
    "id": "c20",

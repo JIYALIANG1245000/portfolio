@@ -433,7 +433,7 @@
   function uisHTML(st) {
     const set = setOf(st.flatMap(x => x.imgs));
     return `<div class="uis" data-tabs><div class="tabbar" style="--n:${st.length}">${st.map((x, i) =>
-      `<div class="tab ${i ? '' : 'on'}" data-i="${i}"><b>STEP ${pad2(i)}</b><h3 data-path="${x.tp}">${esc(x.t)}</h3><span class="uis-tag ${/AI/.test(x.tag) ? 'ai' : 'hu'}" data-path="${x.tagp}">${esc(x.tag)}</span><span class="bar"></span></div>`).join('')}</div>
+      `<div class="tab ${i ? '' : 'on'}" data-i="${i}"><b>STEP ${pad2(i)}</b><h3 data-path="${x.tp}">${esc(x.t)}</h3>${x.tag ? `<span class="uis-tag ${/AI/.test(x.tag) ? 'ai' : 'hu'}" data-path="${x.tagp}">${esc(x.tag)}</span>` : ''}<span class="bar"></span></div>`).join('')}</div>
       <div class="panels">${st.map((x, i) => `<div class="panel ${i ? '' : 'on'}"><div class="uis-f" style="--n:${x.imgs.length}">${x.imgs.map((id, k) => {
         const cp = (x.caps && x.caps[k]) || '';
         const cpp = x.capp ? `${x.capp}.${k}.cap` : null;
@@ -446,7 +446,7 @@
   }
   /* 板块级：标题在上一行，下面步骤页签 + 大图 */
   function uisSec(s, p) {
-    const st = s.items.map((x, i) => ({ t: ttl(x.title), tag: x.tag || '', d: ttl(x.desc), imgs: (x.images || []).map(y => y.id), tp: `${p}.items.${i}.title`, tagp: `${p}.items.${i}.tag`, dp: `${p}.items.${i}.desc`, imgp: `${p}.items.${i}.images`, caps: (x.images || []).map(y => y.cap || ''), capp: `${p}.items.${i}.images` }));
+    const st = s.items.map((x, i) => ({ t: ttl(x.title), tag: s.hideTags ? '' : (x.tag || ''), d: ttl(x.desc), imgs: (x.images || []).map(y => y.id), tp: `${p}.items.${i}.title`, tagp: `${p}.items.${i}.tag`, dp: `${p}.items.${i}.desc`, imgp: `${p}.items.${i}.images`, caps: (x.images || []).map(y => y.cap || ''), capp: `${p}.items.${i}.images` }));
     return `${head(s, p, 'two')}${uisHTML(st)}${times(s, p)}`;
   }
   function panesOf(it, ip, gridAll) {
