@@ -35,6 +35,17 @@
     if (!R.edit && (v == null || v === '') && !(opt && opt.keep)) return '';
     return `<${tag} class="${cls || ''}" data-path="${path}">${v == null ? '' : v}</${tag}>`;
   }
+  /* 描述：bullet 开启时每一行前面加小绿点 */
+  function dsc(path, cls, bullet) {
+    const v = R.get(R.data, path);
+    if (!R.edit && (v == null || v === '')) return '';
+    const multi = /<br\s*\/?>/i.test(String(v == null ? '' : v));
+    const on = bullet === true || (bullet == null && multi);      // 未显式设置时：多行自动带点
+    if (!on) return `<p class="${cls || ''}" data-path="${path}">${v == null ? '' : v}</p>`;
+    const body = String(v == null ? '' : v).split(/<br\s*\/?>/i)
+      .map(x => `<span class="bl">${x}</span>`).join('');
+    return `<p class="${(cls || '') + ' bullets'}" data-path="${path}">${body}</p>`;
+  }
   /* 图片 */
   function im(ref, ip, o) {
     o = o || {};
@@ -50,7 +61,7 @@
   }
   const setOf = arr => (arr || []).map(x => x.id).join(',');
   function head(s, p, cls) {
-    return `<div class="sh ${cls || ''}">${t(p + '.kicker', 'small', 'k')}${t(p + '.title', 'h2', 'h')}${t(p + '.desc', 'p', 'd')}</div>`;
+    return `<div class="sh ${cls || ''}">${t(p + '.kicker', 'small', 'k')}${t(p + '.title', 'h2', 'h')}${dsc(p + '.desc', 'd', s.bullet)}</div>`;
   }
   function times(s, p) {
     if (!s.times || !s.times.length) return '';
@@ -597,7 +608,7 @@
           const ip = `${p}.items.${i}`, L = panesOf(it, ip), split = (it.rows || it.cases) && L.length > 1;
           const b = paneBox(split ? L.slice(0, 1) : L, ip);
           if (it.noHead) return `<article class="rb rb-ov" id="${s.id}-${i}" data-k="-1"><div class="rb-ov-d">${t(ip + '.desc', 'p', '')}</div>${b.body}</article>`;
-          let h = `<article class="rb" id="${s.id}-${i}" data-k="${i}" data-vh><div class="rb-h"><em>${pad2(nums[i])}</em><div>${it.note != null && (R.edit || !it.rows) ? `<div class="rb-tn">${t(ip + '.title', 'h3', '', { keep: 1 })}${t(ip + '.note', 'small', '', { keep: 1 })}</div>` : t(ip + '.title', 'h3', '', { keep: 1 })}${t(ip + '.desc', 'p', '')}</div>${split ? '' : b.seg}</div>${b.body}${nums[i] === 0 ? times(s, p) : ''}</article>`;
+          let h = `<article class="rb" id="${s.id}-${i}" data-k="${i}" data-vh><div class="rb-h"><em>${pad2(nums[i])}</em><div>${it.note != null && (R.edit || !it.rows) ? `<div class="rb-tn">${t(ip + '.title', 'h3', '', { keep: 1 })}${t(ip + '.note', 'small', '', { keep: 1 })}</div>` : t(ip + '.title', 'h3', '', { keep: 1 })}${dsc(ip + '.desc', '', it.bullet)}</div>${split ? '' : b.seg}</div>${b.body}${nums[i] === 0 ? times(s, p) : ''}</article>`;
           if (split) L.slice(1).forEach((x, k) => { h += `<article class="rb rb-sub" id="${s.id}-${i}-${k + 1}" data-k="${i}" data-vh><div class="rb-h"><em>${pad2(nums[i])}</em><div><div class="rb-tn"><h3>${esc(ttl(it.title))}<span> · ${x[0]}</span></h3>${it.note && /CASE/.test(x[0]) ? `<small>${esc(ttl(it.note))}</small>` : ''}</div></div></div><div class="vws"><div class="vp on">${x[1]}</div></div></article>`; });
           return h;
         }).join('')}</div></div>`;

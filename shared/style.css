@@ -1453,3 +1453,9 @@ figcaption{position:absolute;left:0;top:0;padding:6px 12px;font-size:12px;backgr
 .eqh.fill.tall,.eqh.fill.tall .eqh-in{height:100%;max-height:none}
 .eqh.fill.tall .eqh-in{--h:100%;align-items:stretch}
 .eqh.fill.tall figure{flex:1 1 0;height:100%}
+
+/* 描述行小绿点（section.bullet / item.bullet 控制，默认关） */
+p.bullets{display:flex;flex-direction:column;gap:.15em}
+p.bullets .bl{position:relative;padding-left:15px}
+p.bullets .bl:before{content:"";position:absolute;left:0;top:.72em;width:5px;height:5px;border-radius:50%;background:var(--acid)}
+.sh.two p.bullets{max-width:460px}

@@ -1247,7 +1247,8 @@ window.CONTENT={
         }
        ]
       }
-     ]
+     ],
+     "bullet": true
     },
     {
      "title": "细化精修",
