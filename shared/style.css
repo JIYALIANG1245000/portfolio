@@ -1269,5 +1269,3 @@ figcaption{position:absolute;left:0;top:0;padding:6px 12px;font-size:12px;backgr
 .cf.wide .cf-im{overflow:hidden}
 .cf.wide .cf-im figure{height:100%;min-height:0}
 @media (max-width:900px){.cf.wide .cf-g,.cf.wide .cf-row{height:auto;grid-template-rows:none}}
-
-/* published: 2026-11-03 10:55 */
