@@ -796,7 +796,8 @@ window.CONTENT={
        ]
       }
      ],
-     "noHead": false
+     "noHead": false,
+     "hideTags": true
     },
     {
      "title": "概念草图",

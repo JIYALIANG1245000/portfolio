@@ -336,16 +336,17 @@
   function cflowHTML(it, ip) {
     const set = setOf(it.cflow.flatMap(g => g.steps.flatMap(x => x.images)));
     let n = 0;
-    return `<div class="cf ${(it.cflow.length === 1 ? 'one' : '') + (it.wide ? ' wide' : '')}">${it.cflow.map((g, gi) => {
+    const tag = it.hideTags ? '' : 'tag';
+    return `<div class="cf ${(it.cflow.length === 1 ? 'one' : '') + (it.wide ? ' wide' : '')}${it.hideTags ? ' notag' : ''}">${it.cflow.map((g, gi) => {
       const gp = `${ip}.cflow.${gi}`;
       return `<div class="cf-g" style="--n:${g.steps.length}"><div class="cf-st"><em>STAGE ${pad2(gi)}</em>${t(gp + '.t', 'h4', '', { keep: 1 })}${t(gp + '.s', 'p', '', { keep: 1 })}</div>
         <div class="cf-row">${g.steps.map((x, k) => {
           const sp = `${gp}.steps.${k}`, ai = /AI/.test(x.tag), hu = /人工/.test(x.tag);
           const figs = x.images.map((y, j) => `${j ? '<i class="cf-lr">LoRA</i>' : ''}<figure>${im(y, `${sp}.images.${j}`, { big: 1, set })}</figure>`).join('');
-          return `<div class="cf-c ${ai && hu ? 'mix' : ai ? 'ai' : 'hu'}" style="--i:${n++}"><header><b>${pad2(k)}</b><span data-path="${sp}.tag">${x.tag}</span></header>
+          return `<div class="cf-c ${ai && hu ? 'mix' : ai ? 'ai' : 'hu'}" style="--i:${n++}"><header><b>${pad2(k)}</b>${it.hideTags ? '' : `<span data-path="${sp}.tag">${x.tag}</span>`}</header>
             ${t(sp + '.t', 'h5', '', { keep: 1 })}<div class="cf-im ${x.images.length > 1 ? 'two' : ''}">${figs}</div>${t(sp + '.d', 'p', '', { keep: 1 })}</div>`;
         }).join('')}</div></div>`;
-    }).join('')}<div class="cf-lg"><span class="ai">AI</span>AI 生成 / 处理<span class="hu">人工</span>人工把控</div></div>`;
+    }).join('')}${it.hideTags ? '' : '<div class="cf-lg"><span class="ai">AI</span>AI 生成 / 处理<span class="hu">人工</span>人工把控</div>'}</div>`;
   }
   /* 细化精修：上 3 小图 + 下 2 大图，各行等高 */
   function refineHTML(it, ip) {

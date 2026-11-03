@@ -1384,3 +1384,9 @@ figcaption{position:absolute;left:0;top:0;padding:6px 12px;font-size:12px;backgr
 /* 页签大图备注（Figma 原稿 / Unity·AI 搭建） */
 .sec.l-uis .uis-f figcaption{position:absolute;left:10px;bottom:10px;top:auto;padding:4px 11px;border-radius:8px;
   font-size:12px;font-weight:700;letter-spacing:.04em;line-height:1.5;background:var(--acid);color:#060806;white-space:nowrap;z-index:2}
+/* 流程图隐藏 AI/人工 角标后：步骤卡上边距收紧、序号靠上 */
+.cf.notag .cf-c header{justify-content:flex-start}
+.cf.notag .cf-c h5{margin-top:2px}
+/* 流程图隐藏 AI/人工 角标后：步骤卡上边距收紧、序号靠上 */
+.cf.notag .cf-c header{justify-content:flex-start}
+.cf.notag .cf-c h5{margin-top:2px}
