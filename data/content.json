@@ -69,16 +69,16 @@
      "title": "LoRA 训练"
     },
     {
-     "title": "AI 角色设计全流程"
+     "title": "角色设计 AI全流程"
     },
     {
-     "title": "UI 设计"
+     "title": "UI设计 AI全流程"
     },
     {
-     "title": "3D 物件"
+     "title": "3D 物件 AI全流程"
     },
     {
-     "title": "视频生成"
+     "title": "视频生成 AI全流程"
     },
     {
      "title": "AI 工具"
@@ -169,12 +169,12 @@
      "to": "c15"
     },
     {
-     "title": "AI 角色设计全流程",
+     "title": "角色设计 AI全流程",
      "desc": "从概念草图到 3D 生成",
      "to": "c12"
     },
     {
-     "title": "UI 设计",
+     "title": "UI设计 AI全流程",
      "desc": "每人每周 20-30 张成稿",
      "to": "c13"
     }
@@ -609,7 +609,7 @@
    "visible": true,
    "nav": "",
    "kicker": "2D 设计 · 03",
-   "title": "AI 角色设计<br><span>全流程</span>",
+   "title": "角色设计<br><span>AI 全流程</span>",
    "desc": "从批量草图到动作立绘，再到拆件与 3D 生成：AI 负责“量”，人工负责“准”。",
    "items": [
     {
@@ -1737,7 +1737,7 @@
    "visible": true,
    "nav": "",
    "kicker": "2D 设计 · 04",
-   "title": "UI<br><span>设计</span>",
+   "title": "UI设计 <span>AI全流程</span>",
    "desc": "矩阵铺量 → 筛选 → 精修 → LoRA 上色 → UI 引擎搭建",
    "items": [
     {
@@ -1943,9 +1943,9 @@
    "type": "steps",
    "layout": "stack",
    "visible": true,
-   "nav": "3D 物件",
+   "nav": "3D 物件 AI全流程",
    "kicker": "CHAPTER 02",
-   "title": "3D <span>物件</span>",
+   "title": "3D 物件 <span>AI全流程</span>",
    "desc": "矩阵草图 → 3D 视图 → 正交三视图 → 批量出 3D 建模",
    "items": [
     {
@@ -2056,7 +2056,7 @@
    "type": "video",
    "layout": "split",
    "kicker": "CHAPTER 03",
-   "title": "视频<br><span>生成</span>",
+   "title": "视频生成 <span>AI全流程</span>",
    "desc": "",
    "video": "reel",
    "images": [
@@ -2086,7 +2086,7 @@
     }
    ],
    "id": "s11",
-   "nav": "视频生成",
+   "nav": "视频生成 AI全流程",
    "visible": true,
    "style": {
     "bg": "dark",
