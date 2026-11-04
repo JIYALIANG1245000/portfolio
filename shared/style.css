@@ -1464,5 +1464,5 @@ p.bullets .bl:before{content:"";position:absolute;left:0;top:.72em;width:5px;hei
 
 /* 编辑站：空的说明位显示成可点击的隐形文本框，发布站不出现 */
 p.is-empty{min-height:1.5em}   /* 空说明位：只占位，编辑站里由 [data-path]:empty 提示，发布站不显示 */
-/* 拓展 CASE 子块：灰色注释放到标题下一行 */
-.rb-sub .rb-tn{flex-direction:column;align-items:flex-start;gap:2px}
+/* 标题右侧的灰色注释统一放到标题下一行（主块与拓展 CASE 子块都生效） */
+.rb-tn{flex-direction:column;align-items:flex-start;gap:2px}

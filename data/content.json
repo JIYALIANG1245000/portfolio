@@ -801,7 +801,8 @@
       }
      ],
      "noHead": false,
-     "hideTags": true
+     "hideTags": true,
+     "bullet": true
     },
     {
      "title": "概念草图",
@@ -1482,7 +1483,8 @@
         }
        ]
       }
-     ]
+     ],
+     "bullet": true
     },
     {
      "title": "一键拆件",
@@ -1679,7 +1681,8 @@
       },
       "srcLabel": "完整原画",
       "arrow": "AI 自动拆件"
-     }
+     },
+     "bullet": true
     },
     {
      "title": "3D 生成",
@@ -1715,7 +1718,8 @@
         "title": "裙摆"
        }
       ]
-     }
+     },
+     "bullet": true
     }
    ],
    "times": [
@@ -1757,7 +1761,7 @@
    "nav": "",
    "kicker": "2D 设计 · 04",
    "title": "UI设计 <span>AI全流程</span>",
-   "desc": "矩阵铺量 → 筛选 → 精修 → LoRA 上色 → UI 引擎搭建",
+   "desc": "",
    "items": [
     {
      "title": "批量跑线稿",
@@ -2372,5 +2376,5 @@
    }
   }
  ],
- "savedAt": "2026-11-04T05:25:49.086Z"
+ "savedAt": "2026-11-04T05:36:25.897Z"
 }
