@@ -44,8 +44,8 @@
     const multi = /<br\s*\/?>/i.test(String(v == null ? '' : v));
     const on = bullet === true || (bullet == null && multi);      // 未显式设置时：多行自动带点
     // 编辑态给出绿点开关（只对 .desc 生效）；em 包裹行会被编辑器 clean() 自动剥离，不污染数据
-    const chip = R.edit && /\.desc$/.test(path)
-      ? `<span class="bl-sw" data-bp="${path.replace(/\.desc$/, '.bullet')}">绿点：${bullet === true ? '开' : bullet === false ? '关' : '自动'}</span>`
+    const chip = R.edit && /\.(desc|note)$/.test(path)
+      ? `<span class="bl-sw" data-bp="${path.replace(/\.(desc|note)$/, '.bullet')}">绿点：${bullet === true ? '开' : bullet === false ? '关' : '自动'}</span>`
       : '';
     if (!on) return `<p class="${base}" data-path="${path}">${v == null ? '' : v}</p>${chip}`;
     const body = String(v == null ? '' : v).split(/<br\s*\/?>/i)
@@ -115,10 +115,10 @@
   }
   T.video = {
     wide(s, p) {
-      return `${head(s, p, 'two')}<div class="vwide">${vid(s)}</div>${grid(s.images, p + '.images', s.style.cols || 3)}`;
+      return `${head(s, p, 'two')}${dsc(p + '.note', 'vnote', s.noteBullet)}<div class="vwide">${vid(s)}</div>${grid(s.images, p + '.images', s.style.cols || 3)}`;
     },
     split(s, p) {
-      return `${head(s, p, 'two')}<div class="vsplit"><div class="vbox">${vid(s)}</div>
+      return `${head(s, p, 'two')}${dsc(p + '.note', 'vnote', s.noteBullet)}<div class="vsplit"><div class="vbox">${vid(s)}</div>
         <div class="vstill" data-group>${(s.images || []).map((x, i) => fig(x, `${p}.images.${i}`, { cls: 'c' })).join('')}</div></div>`;
     }
   };

@@ -1469,3 +1469,7 @@ p.is-empty{min-height:1.5em}   /* 空说明位：只占位，编辑站里由 [da
 
 /* uis 步骤说明：允许点击进入编辑（原为 pointer-events:none 的悬浮说明层） */
 .sec.l-uis .uis-d[data-path]{pointer-events:auto}
+
+/* 视频板块头部说明框（s.note，空则发布站不显示） */
+.vnote{color:var(--mute);font-size:14px;line-height:1.9;max-width:820px;margin:-26px 0 clamp(22px,3.5vh,36px)}
+.vnote.is-empty{margin-bottom:clamp(14px,2vh,22px)}
