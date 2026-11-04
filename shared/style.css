@@ -1455,8 +1455,10 @@ figcaption{position:absolute;left:0;top:0;padding:6px 12px;font-size:12px;backgr
 .eqh.fill.tall figure{flex:1 1 0;height:100%}
 
 /* 描述行小绿点（section.bullet / item.bullet 控制，默认关） */
-p.bullets{display:flex;flex-direction:column;gap:.15em}
-p.bullets .bl{position:relative;padding-left:15px}
+p.bullets{display:block}
+p.bullets .bl{display:block;position:relative;padding-left:15px;font-style:normal}
+.bl-sw{display:inline-block;margin:6px 0 0 2px;font-size:11px;color:var(--mute);cursor:pointer;border:1px solid var(--line);border-radius:4px;padding:1px 7px;user-select:none}
+.bl-sw:hover{color:var(--acid);border-color:var(--acid)}
 p.bullets .bl:before{content:"";position:absolute;left:0;top:.72em;width:5px;height:5px;border-radius:50%;background:var(--acid)}
 .sh.two p.bullets{max-width:460px}
 

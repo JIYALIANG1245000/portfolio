@@ -43,10 +43,14 @@
     const base = (cls || '') + (empty && R.edit ? ' is-empty' : '');
     const multi = /<br\s*\/?>/i.test(String(v == null ? '' : v));
     const on = bullet === true || (bullet == null && multi);      // 未显式设置时：多行自动带点
-    if (!on) return `<p class="${base}" data-path="${path}">${v == null ? '' : v}</p>`;
+    // 编辑态给出绿点开关（只对 .desc 生效）；em 包裹行会被编辑器 clean() 自动剥离，不污染数据
+    const chip = R.edit && /\.desc$/.test(path)
+      ? `<span class="bl-sw" data-bp="${path.replace(/\.desc$/, '.bullet')}">绿点：${bullet === true ? '开' : bullet === false ? '关' : '自动'}</span>`
+      : '';
+    if (!on) return `<p class="${base}" data-path="${path}">${v == null ? '' : v}</p>${chip}`;
     const body = String(v == null ? '' : v).split(/<br\s*\/?>/i)
-      .map(x => `<span class="bl">${x}</span>`).join('');
-    return `<p class="${base + ' bullets'}" data-path="${path}">${body}</p>`;
+      .map(x => `<em class="bl">${x}</em>`).join('');
+    return `<p class="${base + ' bullets'}" data-path="${path}">${body}</p>${chip}`;
   }
   /* 图片 */
   function im(ref, ip, o) {
