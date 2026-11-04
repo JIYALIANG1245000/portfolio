@@ -2,7 +2,7 @@
  "version": 1,
  "meta": {
   "siteTitle": "小季 · AIGC 技术美术作品集",
-  "brand": "小季",
+  "brand": "季雅靓",
   "brandSub": "AIGC 技术美术"
  },
  "theme": {
@@ -1971,7 +1971,7 @@
    "nav": "3D 物件",
    "kicker": "CHAPTER 02",
    "title": "3D 物件 <span>AI全流程</span>",
-   "desc": "矩阵草图 → 3D 视图 → 正交三视图 → 批量出 3D 建模",
+   "desc": "",
    "items": [
     {
      "title": "矩阵草图",
@@ -2144,7 +2144,8 @@
     "aspect": "auto",
     "cols": 3
    },
-   "_oldDesc": ""
+   "_oldDesc": "",
+   "bullet": false
   },
   {
    "id": "c40",
@@ -2376,5 +2377,5 @@
    }
   }
  ],
- "savedAt": "2026-11-04T05:36:25.897Z"
+ "savedAt": "2026-11-04T05:38:38.367Z"
 }

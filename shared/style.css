@@ -1466,3 +1466,6 @@ p.bullets .bl:before{content:"";position:absolute;left:0;top:.72em;width:5px;hei
 p.is-empty{min-height:1.5em}   /* 空说明位：只占位，编辑站里由 [data-path]:empty 提示，发布站不显示 */
 /* 标题右侧的灰色注释统一放到标题下一行（主块与拓展 CASE 子块都生效） */
 .rb-tn{flex-direction:column;align-items:flex-start;gap:2px}
+
+/* uis 步骤说明：允许点击进入编辑（原为 pointer-events:none 的悬浮说明层） */
+.sec.l-uis .uis-d[data-path]{pointer-events:auto}

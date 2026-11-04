@@ -485,14 +485,14 @@
         const cpp = x.capp ? `${x.capp}.${k}.cap` : null;
         const cap = (cp || R.edit) && cpp ? `<figcaption data-path="${cpp}">${esc(cp)}</figcaption>` : '';
         return `<figure><img data-lb="${id}" data-img="${x.imgp}${x.imgs.length > 1 ? '.' + k : ''}" data-lbset="${set}" src="${R.src(id, 1)}" alt="">${cap}</figure>`;
-      }).join('')}</div>${t(x.dp, 'p', 'uis-d')}</div>`).join('')}</div></div>`;
+      }).join('')}</div>${dsc(x.dp, 'uis-d', x.bl)}</div>`).join('')}</div></div>`;
   }
   function uistepsHTML(it, ip) {
     return uisHTML(it.uisteps.map((x, i) => ({ ...x, imgs: [x.img], tp: `${ip}.uisteps.${i}.t`, tagp: `${ip}.uisteps.${i}.tag`, dp: `${ip}.uisteps.${i}.d`, imgp: `${ip}.uisteps.${i}.img` })));
   }
   /* 板块级：标题在上一行，下面步骤页签 + 大图 */
   function uisSec(s, p) {
-    const st = s.items.map((x, i) => ({ t: ttl(x.title), tag: s.hideTags ? '' : (x.tag || ''), d: ttl(x.desc), imgs: (x.images || []).map(y => y.id), tp: `${p}.items.${i}.title`, tagp: `${p}.items.${i}.tag`, dp: `${p}.items.${i}.desc`, imgp: `${p}.items.${i}.images`, caps: (x.images || []).map(y => y.cap || ''), capp: `${p}.items.${i}.images` }));
+    const st = s.items.map((x, i) => ({ t: ttl(x.title), tag: s.hideTags ? '' : (x.tag || ''), d: x.desc, bl: x.bullet, imgs: (x.images || []).map(y => y.id), tp: `${p}.items.${i}.title`, tagp: `${p}.items.${i}.tag`, dp: `${p}.items.${i}.desc`, imgp: `${p}.items.${i}.images`, caps: (x.images || []).map(y => y.cap || ''), capp: `${p}.items.${i}.images` }));
     return `${head(s, p, 'two')}${uisHTML(st)}${times(s, p)}`;
   }
   function panesOf(it, ip, gridAll) {
