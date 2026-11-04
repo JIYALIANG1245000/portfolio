@@ -54,7 +54,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .sh.two{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:var(--gap);align-items:end;margin-bottom:clamp(56px,9vh,96px)}
 .sh.two .k{grid-column:1/-1;margin-bottom:-28px}
 .sh.two .h{margin:0}
-.sh.two .d{justify-self:end}
+.sh.two .d{grid-column:1/-1;justify-self:start;margin-top:-6px}   /* 描述移到标题正下方 */
 
 figure{position:relative;overflow:hidden;background:var(--bk2)}
 figure img{width:100%;height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.2,.7,.2,1)}
