@@ -2,7 +2,7 @@
  "version": 1,
  "meta": {
   "siteTitle": "小季 · AIGC 技术美术作品集",
-  "brand": "小季",
+  "brand": "季雅靓",
   "brandSub": "AIGC 技术美术"
  },
  "theme": {
@@ -21,7 +21,7 @@
    "layout": "strip",
    "kicker": "AIGC TECHNICAL ART · PORTFOLIO",
    "title": "AIGC<br><span>提效</span>流程",
-   "desc": "某著名 IP 漫改游戏 · 自研 AIGC 美术平台<br>把 AI 变成游戏美术的生产线，而不是抽卡机。",
+   "desc": "IP 漫改项目 · 自研 AIGC 美术平台AI 全流程端到端交付管线展示",
    "images": [
     {
      "id": "a049",
@@ -175,7 +175,7 @@
     }
    ],
    "style": {
-    "bg": "dark",
+    "bg": "alt",
     "pad": "m",
     "align": "left",
     "fit": "cover",
@@ -478,7 +478,8 @@
     "aspect": "auto",
     "cols": 3
    },
-   "navOrder": -1
+   "navOrder": -1,
+   "bullet": false
   },
   {
    "id": "c15",
@@ -492,7 +493,7 @@
    "items": [
     {
      "title": "项目立绘风格",
-     "desc": "《火凤燎原》项目角色立绘风格LoRA<br>薄涂质感、漫画笔触、国风立绘，统一服饰纹样、光影与线条力度<br>可将线稿或草图在保持人物特征一致性的前提下重渲染风格",
+     "desc": "《火凤燎原》项目角色立绘风格LoRA<br>薄涂质感、漫画笔触、国风立绘，统一服饰纹样、光影与线条力度<br>可将线稿或草图在保持人物特征一致性的前提下重渲染风格（免contolnet）",
      "images": [
       {
        "id": "l000",
@@ -531,7 +532,7 @@
     },
     {
      "title": "项目角色天赋风格",
-     "desc": "菱形边框的黑白版画人物，暗色渐变底衬托角色气质",
+     "desc": "《火凤燎原》项目角色天赋 icon 风格 LoRA<br>菱形边框的黑白版画人物，暗色渐变底衬托角色气质<br>可根据策划案一键生成符合角色设定的角色天赋 icon",
      "images": [
       {
        "id": "l006",
@@ -550,7 +551,7 @@
     },
     {
      "title": "项目道具 icon 风格",
-     "desc": "手绘写实的道具图标，固定灰底与投影，可直接批量出图",
+     "desc": "《火凤燎原》项目道具 icon 风格 LoRA<br>手绘写实的道具图标，固定灰底与投影，可直接批量出图<br>可根据草图或线稿一键渲染风格（免contolnet）",
      "images": [
       {
        "id": "l009",
@@ -569,7 +570,7 @@
     },
     {
      "title": "二次元风格",
-     "desc": "干净赛璐璐上色，适合角色设定与宣传立绘",
+     "desc": "使用了300+张二次元游戏角色立绘作为训练集，base开源编辑模型<br>干净赛璐璐上色，适合角色设定与宣传立绘<br>可根据线稿一键渲染风格（免contolnet）",
      "images": [
       {
        "id": "l012",
@@ -589,7 +590,7 @@
     },
     {
      "title": "三渲二风格",
-     "desc": "三维光影 + 二维线条质感，兼顾立体感与插画感",
+     "desc": "使用了300+双成之战高质量训练集，base开源编辑模型<br>可摆脱对ControlNet的依赖，锁住角色特征直接渲染风格<br>三维光影 + 二维线条质感，兼顾立体感与插画感",
      "images": [
       {
        "id": "l015",
@@ -630,7 +631,7 @@
    "desc": "从批量草图到动作立绘，再到拆件与 3D 生成：AI 负责“量”，人工负责“准”。",
    "items": [
     {
-     "title": "批量流程",
+     "title": "AI 批量全流程",
      "desc": "人物设计 + 立绘批量流程全景",
      "images": [
       {
@@ -801,11 +802,12 @@
       }
      ],
      "noHead": false,
-     "hideTags": true
+     "hideTags": true,
+     "bullet": true
     },
     {
      "title": "概念草图",
-     "desc": "矩阵批量出角色线稿，人工筛选融合后上色定稿",
+     "desc": "下班前给AI设定好任务<br>夜间矩阵批量出角色线稿<br>第二天人工筛选符合预期的结果",
      "images": [
       {
        "id": "x004",
@@ -853,7 +855,7 @@
     },
     {
      "title": "三视图",
-     "desc": "AI 由正视图反推侧视、背视，人工精修结构",
+     "desc": "选定草图后，AI一键上色、去除毛边和修复错误结构<br>人工对AI生成的正视图进行精修<br>经正视图AI反推侧视图和后视图<br>人工对AI生成的侧视图和后视图进行精修",
      "images": [],
      "proc": [
       {
@@ -892,7 +894,7 @@
         "t": "侧视图",
         "images": [
          {
-          "id": "x017",
+          "id": "u015",
           "cap": ""
          }
         ]
@@ -1247,7 +1249,8 @@
         }
        ]
       }
-     ]
+     ],
+     "bullet": true
     },
     {
      "title": "细化精修",
@@ -1481,7 +1484,8 @@
         }
        ]
       }
-     ]
+     ],
+     "bullet": true
     },
     {
      "title": "一键拆件",
@@ -1678,7 +1682,8 @@
       },
       "srcLabel": "完整原画",
       "arrow": "AI 自动拆件"
-     }
+     },
+     "bullet": true
     },
     {
      "title": "3D 生成",
@@ -1714,7 +1719,8 @@
         "title": "裙摆"
        }
       ]
-     }
+     },
+     "bullet": true
     }
    ],
    "times": [
@@ -1756,7 +1762,7 @@
    "nav": "",
    "kicker": "2D 设计 · 04",
    "title": "UI设计 <span>AI全流程</span>",
-   "desc": "矩阵铺量 → 筛选 → 精修 → LoRA 上色 → UI 引擎搭建",
+   "desc": "",
    "items": [
     {
      "title": "批量跑线稿",
@@ -1966,7 +1972,7 @@
    "nav": "3D 物件",
    "kicker": "CHAPTER 02",
    "title": "3D 物件 <span>AI全流程</span>",
-   "desc": "矩阵草图 → 3D 视图 → 正交三视图 → 批量出 3D 建模",
+   "desc": "",
    "items": [
     {
      "title": "矩阵草图",
@@ -2139,7 +2145,9 @@
     "aspect": "auto",
     "cols": 3
    },
-   "_oldDesc": ""
+   "_oldDesc": "",
+   "bullet": null,
+   "note": "AI 生成风格化分镜<br>LoRA 特征：黑泽明、黑白版画、正负形设计、羊蹄山之魂插画<br>由分镜串联成视频用作游戏过场动画"
   },
   {
    "id": "c40",
@@ -2149,7 +2157,7 @@
    "nav": "AI 工具",
    "kicker": "CHAPTER 04",
    "title": "其他 AI<br><span>工具与流程</span>",
-   "desc": "",
+   "desc": " ",
    "items": [
     {
      "title": "FOV 分析",
@@ -2346,15 +2354,15 @@
    "type": "contact",
    "kicker": "CHAPTER 05",
    "title": "LET'S<br><span>BUILD</span> IT.",
-   "desc": "AIGC 技术美术 · 用 AI 解决游戏美术生产管线里的实际问题。",
+   "desc": "AI 技术美术 · 用 AI 解决游戏美术生产管线里的实际问题。",
    "items": [
     {
      "title": "邮箱",
-     "desc": "your@email.com"
+     "desc": "jiyaliang@foxmail.com"
     },
     {
      "title": "微信",
-     "desc": "在编辑站里修改"
+     "desc": "18959172665"
     }
    ],
    "tags": "ComfyUI · LoRA 训练 · Prompt Engineering · Flux2 Klein · Nano Banana · GPT Image · Tripo 3D",
@@ -2371,5 +2379,5 @@
    }
   }
  ],
- "savedAt": "2026-11-03T13:04:01.225Z"
+ "savedAt": "2026-11-04T07:35:45.316Z"
 }

@@ -21,7 +21,7 @@
    "layout": "strip",
    "kicker": "AIGC TECHNICAL ART · PORTFOLIO",
    "title": "AIGC<br><span>提效</span>流程",
-   "desc": "某著名 IP 漫改游戏 · 自研 AIGC 美术平台<br>把 AI 变成游戏美术的生产线，而不是抽卡机。",
+   "desc": "IP 漫改项目 · 自研 AIGC 美术平台AI 全流程端到端交付管线展示",
    "images": [
     {
      "id": "a049",
@@ -478,7 +478,8 @@
     "aspect": "auto",
     "cols": 3
    },
-   "navOrder": -1
+   "navOrder": -1,
+   "bullet": false
   },
   {
    "id": "c15",
@@ -2145,7 +2146,8 @@
     "cols": 3
    },
    "_oldDesc": "",
-   "bullet": false
+   "bullet": null,
+   "note": "AI 生成风格化分镜<br>LoRA 特征：黑泽明、黑白版画、正负形设计、羊蹄山之魂插画<br>由分镜串联成视频用作游戏过场动画"
   },
   {
    "id": "c40",
@@ -2155,7 +2157,7 @@
    "nav": "AI 工具",
    "kicker": "CHAPTER 04",
    "title": "其他 AI<br><span>工具与流程</span>",
-   "desc": "",
+   "desc": " ",
    "items": [
     {
      "title": "FOV 分析",
@@ -2377,5 +2379,5 @@
    }
   }
  ],
- "savedAt": "2026-11-04T05:38:38.367Z"
+ "savedAt": "2026-11-04T07:35:48.476Z"
 }
