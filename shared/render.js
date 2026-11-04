@@ -49,7 +49,7 @@
       : '';
     if (!on) return `<p class="${base}" data-path="${path}">${v == null ? '' : v}</p>${chip}`;
     const body = String(v == null ? '' : v).split(/<br\s*\/?>/i)
-      .map(x => `<em class="bl">${x}</em>`).join('');
+      .map(x => `<bl-line class="bl">${x}</bl-line>`).join('');   // 自定义标签：编辑器 clean() 剥离、且不会撞上 .si-l em 等标题样式
     return `<p class="${base + ' bullets'}" data-path="${path}">${body}</p>${chip}`;
   }
   /* 图片 */
