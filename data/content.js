@@ -175,7 +175,7 @@ window.CONTENT={
     }
    ],
    "style": {
-    "bg": "dark",
+    "bg": "alt",
     "pad": "m",
     "align": "left",
     "fit": "cover",
@@ -492,7 +492,7 @@ window.CONTENT={
    "items": [
     {
      "title": "项目立绘风格",
-     "desc": "《火凤燎原》项目角色立绘风格LoRA<br>薄涂质感、漫画笔触、国风立绘，统一服饰纹样、光影与线条力度<br>可将线稿或草图在保持人物特征一致性的前提下重渲染风格（免contolnet）",
+     "desc": "<span>《火凤燎原》项目角色立绘风格LoRA<br></span><span>薄涂质感、漫画笔触、国风立绘，统一服饰纹样、光影与线条力度<br></span><span>可将线稿或草图在保持人物特征一致性的前提下重渲染风格（免contolnet）</span>",
      "images": [
       {
        "id": "l000",
@@ -512,7 +512,7 @@ window.CONTENT={
     },
     {
      "title": "项目天赋 icon 风格",
-     "desc": "《火凤燎原》项目技能 icon 风格 LoRA<br>圆形构图的剪影式技能图标，粗犷笔触 + 单一主色<br>可根据策划案一键生成符合角色设定的技能icon",
+     "desc": "<span><span>《火凤燎原》项目技能 icon 风格 LoRA<br></span><span>圆形构图的剪影式技能图标，粗犷笔触 + 单一主色<br></span><span>可根据策划案一键生成符合角色设定的技能icon</span></span>",
      "images": [
       {
        "id": "l003",
@@ -531,7 +531,7 @@ window.CONTENT={
     },
     {
      "title": "项目角色天赋风格",
-     "desc": "《火凤燎原》项目角色天赋 icon 风格 LoRA<br>菱形边框的黑白版画人物，暗色渐变底衬托角色气质<br>可根据策划案一键生成符合角色设定的角色天赋 icon",
+     "desc": "<span>《火凤燎原》项目角色天赋 icon 风格 LoRA<br></span><span>菱形边框的黑白版画人物，暗色渐变底衬托角色气质<br></span><span>可根据策划案一键生成符合角色设定的角色天赋 icon</span>",
      "images": [
       {
        "id": "l006",
@@ -550,7 +550,7 @@ window.CONTENT={
     },
     {
      "title": "项目道具 icon 风格",
-     "desc": "《火凤燎原》项目道具 icon 风格 LoRA<br>手绘写实的道具图标，固定灰底与投影，可直接批量出图<br>可根据草图或线稿一键渲染风格（免contolnet）",
+     "desc": "<span>《火凤燎原》项目道具 icon 风格 LoRA<br></span><span>手绘写实的道具图标，固定灰底与投影，可直接批量出图<br></span><span>可根据草图或线稿一键渲染风格（免contolnet）</span>",
      "images": [
       {
        "id": "l009",
@@ -569,7 +569,7 @@ window.CONTENT={
     },
     {
      "title": "二次元风格",
-     "desc": "使用了300+张二次元游戏角色立绘作为训练集，base开源编辑模型<br>干净赛璐璐上色，适合角色设定与宣传立绘<br>可根据线稿一键渲染风格（免contolnet）",
+     "desc": "<span>使用了300+张二次元游戏角色立绘作为训练集，base开源编辑模型<br></span><span>干净赛璐璐上色，适合角色设定与宣传立绘<br></span><span>可根据线稿一键渲染风格（免contolnet）</span>",
      "images": [
       {
        "id": "l012",
@@ -589,7 +589,7 @@ window.CONTENT={
     },
     {
      "title": "三渲二风格",
-     "desc": "使用了300+双成之战高质量训练集，base开源编辑模型<br>可摆脱对ControlNet的依赖，锁住角色特征直接渲染风格<br>三维光影 + 二维线条质感，兼顾立体感与插画感",
+     "desc": "<span>使用了300+双成之战高质量训练集，base开源编辑模型<br></span><span>可摆脱对ControlNet的依赖，锁住角色特征直接渲染风格<br></span><span>三维光影 + 二维线条质感，兼顾立体感与插画感</span>",
      "images": [
       {
        "id": "l015",
@@ -2372,5 +2372,5 @@ window.CONTENT={
    }
   }
  ],
- "savedAt": "2026-11-03T14:24:42.536Z"
+ "savedAt": "2026-11-04T05:05:26.931Z"
 };
