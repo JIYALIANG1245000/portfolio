@@ -684,7 +684,7 @@
     big(s, p) {
       return `${t(p + '.kicker', 'small', 'k')}${t(p + '.title', 'h2', 'end')}<div class="ct-row">${dsc(p + '.desc', 'd', s.bullet)}
         <dl>${s.items.map((x, i) => `<div>${t(`${p}.items.${i}.title`, 'dt', '', { keep: 1 })}${t(`${p}.items.${i}.desc`, 'dd', '', { keep: 1 })}</div>`).join('')}</dl></div>
-        ${t(p + '.tags', 'p', 'tags')}<div class="copy">© 2026 ${esc(R.data.meta.brand)} · ${esc(R.data.meta.brandSub)}</div>`;
+        ${t(p + '.tags', 'p', 'tags')}<div class="copy">© 2026 ${t('meta.brand', 'span', '')} · ${t('meta.brandSub', 'span', '')}</div>`;
     }
   };
 
